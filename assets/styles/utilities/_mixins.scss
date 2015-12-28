@@ -18,15 +18,39 @@
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+@mixin font-awesome($icon) {
+  content: '#{$icon}';
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 30px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $brand-color;
+  position: absolute;
+  top: -12px;
+}
 
 @mixin range-thumb() {
-  height: 20px;
+  height: 10px;
   width: 20px;
-  border-radius: 50%;
-  background: #bada55;
+  border-radius: 4px;
+  background: $brand-color;
   cursor: pointer;
-  margin-top: -8px;
+  margin-top: -3px;
   box-shadow: 0;
+  position: relative;
+
+  &:before {
+    // @include font-awesome("\f104");
+    // padding-right: 5px;
+    // left: -4px;
+  }
+
+  // &:after {
+  //   @include font-awesome("\f105");
+  //   right: -4px;
+  // }
 }
 
 @mixin range-track() {
@@ -34,7 +58,7 @@
   height: 4px;
   cursor: pointer;
   box-shadow: 0;
-  background: darken(#bada55, 20%);
+  background: darken($brand-color, 20%);
   border-radius: 10px;
   border: 0;
 }

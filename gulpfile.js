@@ -5,6 +5,7 @@ var pngcrush = require('imagemin-pngcrush');
 var args = require('yargs').argv;
 var mainBowerFiles = require('main-bower-files');
 var jshint = require('gulp-jshint');
+var yaml = require('gulp-yaml');
 var $ = require('gulp-load-plugins')();
 
 
@@ -153,6 +154,17 @@ gulp.task('image_task', function() {
       use: [pngcrush()]
     }))
     .pipe(gulp.dest(production_path + 'images'));
+});
+
+/**
+ * CONTENT TASK
+ *
+ * Converts yaml file to json
+ */
+gulp.task('content_task', function() {
+  gulp.src('./content.yml')
+    .pipe(yaml({ schema: 'DEFAULT_SAFE_SCHEMA' }))
+    .pipe(gulp.dest(production_path))
 });
 
 

@@ -1,0 +1,135 @@
+## Content
+
+---
+## Section Profiles
+#  Profile images and sizes
+
+profiles:
+  # Meta
+  section_name: Profiles
+  single: Profile
+
+  # Network Entries
+  networks:
+
+    twitter:                  # ID
+      name: Twitter         # Name
+      width: 400            # Width
+      height: 400           # Height
+
+    facebook:
+      name: Facebook
+      width: 180
+      height: 180
+
+    google:
+      name: Google
+      width: 250
+      height: 250
+
+    pinterest:
+      name: Pinterest
+      width: 165
+      height: 165
+
+    linkedin:
+      name: Linked In
+      width: 400
+      height: 400
+
+    instagram:
+      name: Instagram
+      width: 110
+      height: 110
+
+    tumblr:
+      name: Tumblr
+      width: 128
+      height: 128
+
+
+## Social Networks
+networks:
+
+  ## Section Twitter
+  twitter:
+    # Meta
+    section_name: Twitter
+    single: Twitter
+
+    header:               # ID
+      name: Header Image  # Name
+      width: 1500         # Width
+      height: 500         # Height
+
+    in_stream:
+      name: In Stream
+      width: 440
+      height: 220
+
+
+  ## Section - Facebook
+  facebook:
+    # Meta
+    section_name: Facebook
+    single: Facebook
+
+    cover:                # ID (section id prepends)
+      name: Cover Photo   # Name
+      width: 851          # Width
+      height: 315         # Height
+
+    shared:
+      name: Shared Image
+      width: 1200
+      height: 630
+
+    shared_link:
+      name: Shared Link
+      width: 1200
+      height: 627
+
+    highlighted:
+      name: Highlighted Image
+      width: 1200
+      height: 717
+
+
+  ## Section - Google
+  google:
+    # Meta
+    section_name: Google
+    single: Google
+
+    cover:                # ID (section id prepends)
+      name: Cover Image   # Name
+      width: 1080         # Width
+      height: 608         # Height
+
+    shared:
+      name: Shared Image
+      width: 497
+      height: 373
+
+    shared_link:
+      name: Shared Link
+      width: 150
+      height: 150
+
+  ## Section - Pinterest
+  pinterest:
+    # Meta
+    section_name: Pinterest
+    single: Pinterest
+
+    board_large:
+      name: Large Board Thumbnail
+      width: 222
+      height: 150
+
+    board_small:
+      name: Small Board Thumbnail
+      width: 55
+      height: 55
+
+

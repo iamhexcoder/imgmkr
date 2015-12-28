@@ -25,42 +25,404 @@
   <h1>Master Image</h1>
   <section class="master-image">
     <input type="file" name="master-file" id="master-file" class="master-image-input file-input" />
-      <label class="file-label" for="master-file">Change All Images</label>
+      <label class="file-label" for="master-file">Upload New Image</label>
     <div id="master-image" class="master-image--image"></div>
   </section>
 
-  <h1>Twitter</h1>
-  <div class="img-section">
-    <div class="cropit-image-preview img-twitter--header">
+
+  <!-- PROFILE IMAGES -->
+  <section id="profile-images" class="type-section" data-title="Profile Images">
+
+    <!-- Twitter -->
+    <section class="img-section">
+      <header class="img-section--title">
+        <p>Twitter Profile: 400 x 400</p>
+      </header>
+      <div class="cropit-image-preview img-twitter--profile"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="twitter-profile" id="twitter-profile" class="cropit-image-input file-input" />
+          <label class="file-label" for="twitter-profile"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </section>
+
+    <!-- Facebook -->
+    <section class="img-section">
+      <header class="img-section--title">
+        <p>Facebook Profile: 180 x 180</p>
+      </header>
+      <div class="cropit-image-preview img-facebook--profile"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="facebook-profile" id="facebook-profile" class="cropit-image-input file-input" />
+          <label class="file-label" for="facebook-profile"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </section>
+
+    <!-- Google -->
+    <section class="img-section">
+      <header class="img-section--title">
+        <p>Google Profile: 250 x 250</p>
+      </header>
+      <div class="cropit-image-preview img-google--profile"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="google-profile" id="google-profile" class="cropit-image-input file-input" />
+          <label class="file-label" for="google-profile"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </section>
+
+    <!-- Pinterest -->
+    <section class="img-section">
+      <header class="img-section--title">
+        <p>Pinterest Profile: 165 x 165</p>
+      </header>
+      <div class="cropit-image-preview img-pinterest--profile"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="pinterest-profile" id="pinterest-profile" class="cropit-image-input file-input" />
+          <label class="file-label" for="pinterest-profile"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </section>
+
+    <!-- LinkedIn -->
+    <section class="img-section">
+      <header class="img-section--title">
+        <p>Linked In Profile: 400 x 400</p>
+      </header>
+      <div class="cropit-image-preview img-linkedin--profile"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="linkedin-profile" id="linkedin-profile" class="cropit-image-input file-input" />
+          <label class="file-label" for="linkedin-profile"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </section>
+
+    <!-- Instagram -->
+    <section class="img-section">
+      <header class="img-section--title">
+        <p>Instagram Profile: 110 x 110</p>
+      </header>
+      <div class="cropit-image-preview img-instagram--profile"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="instagram-profile" id="instagram-profile" class="cropit-image-input file-input" />
+          <label class="file-label" for="instagram-profile"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </section>
+
+    <!-- Tumblr -->
+    <section class="img-section">
+      <header class="img-section--title">
+        <p>Tumblr Profile: 128 x 128</p>
+      </header>
+      <div class="cropit-image-preview img-tumblr--profile"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="tumblr-profile" id="tumblr-profile" class="cropit-image-input file-input" />
+          <label class="file-label" for="tumblr-profile"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </section>
+
+
+  </section><!-- END PROFILE IMAGES -->
+
+
+  <!-- TWITTER -->
+  <section id="twitter-images" class="type-section" data-title="Twitter">
+    <h1>Twitter</h1>
+
+    <!-- Twitter Header Image -->
+    <div class="img-section">
+      <header class="img-section--title">
+        <p>Profile Header</p>
+      </header>
+      <div class="cropit-image-preview img-twitter--header"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="twitter-header" id="twitter-header" class="cropit-image-input file-input" />
+          <label class="file-label" for="twitter-header"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
     </div>
-    <input type="range" class="cropit-image-zoom-input" />
-    <input type="file" name="twitter-header" id="twitter-header" class="cropit-image-input file-input" />
-      <label class="file-label" for="twitter-header"><i class="fa fa-image"></i>Use Custom Image</label>
-    <button class="dl export">Download Single Image</button>
-  </div>
 
-  <div class="img-section">
-    <div class="cropit-image-preview img-twitter--profile"></div>
-    <input type="range" class="cropit-image-zoom-input" />
-    <input type="file" name="twitter-profile" id="twitter-profile" class="cropit-image-input file-input" />
-      <label class="file-label" for="twitter-profile"><i class="fa fa-image"></i>Use Custom Image</label>
-    <button class="dl export">Download Single Image</button>
-  </div>
+    <!-- Twitter In Stream Image -->
+    <div class="img-section">
+      <header class="img-section--title">
+        <p>In-Stream Photo</p>
+      </header>
+      <div class="cropit-image-preview img-twitter--instream"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="twitter-in-stream" id="twitter-in-stream" class="cropit-image-input file-input" />
+          <label class="file-label" for="twitter-in-stream"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </div>
 
-  <div class="img-section">
-    <div class="cropit-image-preview img-twitter--in-stream"></div>
-    <input type="range" class="cropit-image-zoom-input" />
-    <input type="file" name="twitter-in-stream" id="twitter-in-stream" class="cropit-image-input file-input" />
-      <label class="file-label" for="twitter-in-stream"><i class="fa fa-image"></i>Use Custom Image</label>
-    <button class="dl export">Download Single Image</button>
-  </div>
-  <div class="img-section">
-    <div class="cropit-image-preview img-twitter--shared-photo"></div>
-    <input type="range" class="cropit-image-zoom-input" />
-    <input type="file" name="twitter-shared" id="twitter-shared" class="cropit-image-input file-input" />
-      <label class="file-label" for="twitter-shared"><i class="fa fa-image"></i>Use Custom Image</label>
-    <button class="dl export">Download Single Image</button>
-  </div>
+  </section>
+
+
+  <!-- FACEBOOK -->
+  <section id="facebookr-images" class="type-section" data-title="Facebook">
+    <h1>Facebook</h1>
+
+    <!-- Facebook Cover Image -->
+    <div class="img-section">
+      <header class="img-section--title">
+        <p>Cover Photo</p>
+      </header>
+      <div class="cropit-image-preview img-facebook--cover-photo"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="facebook-cover-photo" id="facebook-cover-photo" class="cropit-image-input file-input" />
+          <label class="file-label" for="facebook-cover-photo"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </div>
+
+    <!-- Facebook Shared Image -->
+    <div class="img-section">
+      <header class="img-section--title">
+        <p>Shared Image</p>
+      </header>
+      <div class="cropit-image-preview img-facebook--shared"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="facebook-shared" id="facebook-shared" class="cropit-image-input file-input" />
+          <label class="file-label" for="facebook-shared"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </div>
+
+    <!-- Facebook Shared Link Image -->
+    <div class="img-section">
+      <header class="img-section--title">
+        <p>Shared Link Image</p>
+      </header>
+      <div class="cropit-image-preview img-facebook--shared-link"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="facebook-shared-link" id="facebook-shared-link" class="cropit-image-input file-input" />
+          <label class="file-label" for="facebook-shared-link"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </div>
+
+    <!-- Facebook Hightlighted Image -->
+    <div class="img-section">
+      <header class="img-section--title">
+        <p>Highlighted Image</p>
+      </header>
+      <div class="cropit-image-preview img-facebook--highlighted"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="facebook-highlighted" id="facebook-highlighted" class="cropit-image-input file-input" />
+          <label class="file-label" for="facebook-highlighted"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- GOOGLE -->
+  <section id="google-images" class="type-section" data-title="Google">
+    <h1>Google</h1>
+
+    <!-- Google Cover Image -->
+    <div class="img-section">
+      <header class="img-section--title">
+        <p>Cover Image</p>
+      </header>
+      <div class="cropit-image-preview img-google--cover"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="google-cover" id="google-cover" class="cropit-image-input file-input" />
+          <label class="file-label" for="google-cover"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </div>
+
+    <!-- Google Shared Image -->
+    <div class="img-section">
+      <header class="img-section--title">
+        <p>Shared Image</p>
+      </header>
+      <div class="cropit-image-preview img-google--shared"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="google-shared" id="google-shared" class="cropit-image-input file-input" />
+          <label class="file-label" for="google-shared"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </div>
+
+    <!-- Google Shared Link Image -->
+    <div class="img-section">
+      <header class="img-section--title">
+        <p>Shared Link Image</p>
+      </header>
+      <div class="cropit-image-preview img-google--shared-link"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="google-shared-link" id="google-shared-link" class="cropit-image-input file-input" />
+          <label class="file-label" for="google-shared-link"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- Instagram -->
+  <section id="instagram-images" class="type-section" data-title="Instagram">
+    <h1>Instagram</h1>
+
+    <!-- Instagram Basic Image -->
+    <div class="img-section">
+      <header class="img-section--title">
+        <p>Square Image</p>
+      </header>
+      <div class="cropit-image-preview img-instagram--square"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="instagram-square" id="instagram-square" class="cropit-image-input file-input" />
+          <label class="file-label" for="instagram-square"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Tumblr -->
+  <section id="tumblr-images" class="type-section" data-title="Tumblr">
+    <h1>Tumblr</h1>
+
+    <!-- Tumblr Dash Image -->
+    <div class="img-section">
+      <header class="img-section--title">
+        <p>Dashboard Image</p>
+      </header>
+      <div class="cropit-image-preview img-tumblr--dash"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="tumblr-dash" id="tumblr-dash" class="cropit-image-input file-input" />
+          <label class="file-label" for="tumblr-dash"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </div>
+
+  </section>
+
+
+
+  <!-- YouTube -->
+  <section id="youtube-images" class="type-section" data-title="YouTube">
+    <h1>YouTube</h1>
+
+    <!-- Youtube Cover Image -->
+    <div class="img-section">
+      <header class="img-section--title">
+        <p>Channel Cover Image</p>
+      </header>
+      <div class="cropit-image-preview img-youtube--cover"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="youtube-cover" id="youtube-cover" class="cropit-image-input file-input" />
+          <label class="file-label" for="youtube-cover"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </div>
+
+    <!-- Youtube Video -->
+    <div class="img-section">
+      <header class="img-section--title">
+        <p>Video Image</p>
+      </header>
+      <div class="cropit-image-preview img-youtube--video"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="youtube-video" id="youtube-video" class="cropit-image-input file-input" />
+          <label class="file-label" for="youtube-video"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- Linked In -->
+  <section id="linkedin-images" class="type-section" data-title="YouTube">
+    <h1>LinkedIn</h1>
+
+    <!-- Linked In Career Cover Image -->
+    <div class="img-section">
+      <header class="img-section--title">
+        <p>Career Cover Image</p>
+      </header>
+      <div class="cropit-image-preview img-linkedin--cover"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="linkedin-cover" id="linkedin-cover" class="cropit-image-input file-input" />
+          <label class="file-label" for="linkedin-cover"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </div>
+
+    <!-- Linked In Banner Image -->
+    <div class="img-section">
+      <header class="img-section--title">
+        <p>Banner Image</p>
+      </header>
+      <div class="cropit-image-preview img-linkedin--banner"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="linkedin-banner" id="linkedin-banner" class="cropit-image-input file-input" />
+          <label class="file-label" for="linkedin-banner"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </div>
+
+    <!-- Linked In Logo Image -->
+    <div class="img-section">
+      <header class="img-section--title">
+        <p>Logo Image</p>
+      </header>
+      <div class="cropit-image-preview img-linkedin--logo"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="linkedin-logo" id="linkedin-logo" class="cropit-image-input file-input" />
+          <label class="file-label" for="linkedin-logo"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </div>
+
+    <!-- Linked In Logo Image -->
+    <div class="img-section">
+      <header class="img-section--title">
+        <p>Logo Image</p>
+      </header>
+      <div class="cropit-image-preview img-linkedin--square-logo"></div>
+      <div class="img-section--ui">
+        <input type="range" class="cropit-image-zoom-input" />
+        <input type="file" name="linkedin-square-logo" id="linkedin-square-logo" class="cropit-image-input file-input" />
+          <label class="file-label" for="linkedin-square-logo"><i class="fa fa-image"></i>Use Custom Image</label>
+        <button class="dl export">Download Single Image</button>
+      </div>
+    </div>
+
+  </section>
+
+
+
+
 
   <button id="master-download" class="dl master-dl">Download All</button>
 

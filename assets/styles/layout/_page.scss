@@ -6,7 +6,8 @@
 // Curtain
 // -------
 .curtain {
-  background-color: #fff;
+  background-color: $white;
+  z-index: 9999;
 }
 
 .curtain--content {
@@ -24,6 +25,14 @@
 .master-image--image {
   width: 50%;
   float: right;
+
+  img {
+    width: auto;
+    max-width: 100%;
+    max-height: 600px;
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 
@@ -33,24 +42,150 @@
   overflow: hidden;
 }
 
-// Twitter Header: 1500x500
-.img-twitter--header {
-  width: 1500px;
-  height: 500px;
+.img-section--ui {
+  overflow: hidden;
+  margin: 40px auto 80px;
 }
 
+.img-section--title {
+  margin-bottom: 25px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+
+// Profiles
 .img-twitter--profile {
   width: 400px;
   height: 400px;
 }
 
-.img-twitter--in-stream {
+.img-facebook--profile {
+  width: 180px;
+  height: 180px;
+}
+
+.img-google--profile {
+  width: 250px;
+  height: 250px;
+}
+
+.img-pinterest--profile {
+  width: 165px;
+  height: 165px;
+}
+
+.img-linkedin--profile {
+  width: 400px;
+  height: 400px;
+}
+
+.img-instagram--profile {
+  width: 110px;
+  height: 110px;
+}
+
+.img-tumblr--profile {
+  width: 128px;
+  height: 128px;
+}
+
+
+// Twitter
+.img-twitter--header {
+  width: 1500px;
+  height: 500px;
+}
+
+.img-twitter--instream {
   width: 220px;
   height: 440px;
 }
 
-.img-twitter--shared-photo {
-  width: 1024px;
-  height: 512px;
+
+// Facebook
+.img-facebook--cover-photo {
+  width: 851px;
+  height: 315px;
 }
+
+.img-facebook--shared {
+  width: 1200px;
+  height: 630px;
+}
+
+.img-facebook--shared-link {
+  width: 1200px;
+  height: 627px;
+}
+
+.img-facebook--highlighted {
+  width: 1200px;
+  height: 717px;
+}
+
+
+// Google
+.img-google--cover {
+  width: 1080px;
+  height: 608px;
+}
+
+.img-google--shared {
+  width: 497px;
+  height: 373px;
+}
+
+.img-google--shared-link {
+  width: 150px;
+  height: 150px;
+}
+
+
+// Instagram
+.img-instagram--square {
+  width: 640px;
+  height: 640px;
+}
+
+
+// Tumblr
+.img-tumblr--dash {
+  width: 570px;
+  height: 750px;
+}
+
+// YouTube
+.img-youtube--cover {
+  width: 1546px;
+  height: 423px;
+}
+
+.img-youtube--video {
+  width: 1280px;
+  height: 760px;
+}
+
+
+// Linked In
+.img-linkedin--cover {
+  width: 974px;
+  height: 300px;
+}
+
+.img-linkedin--banner {
+  width: 646px;
+  height: 220px;
+}
+
+.img-linkedin--logo {
+  width: 100px;
+  height: 60px;
+}
+
+.img-linkedin--square-logo {
+  width: 50px;
+  height: 50px;
+}
+
 

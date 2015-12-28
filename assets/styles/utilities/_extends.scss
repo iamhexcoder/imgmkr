@@ -1,6 +1,6 @@
 %button {
   background: none;
-  border: 2px solid #000;
+  border: 2px solid $black;
   color: inherit;
   font: inherit;
   line-height: normal;
@@ -10,9 +10,17 @@
   text-transform: uppercase;
   font-weight: 600;
   display: inline-block;
+  transition: all 0.4s ease;
+  position: relative;
 
   &:focus {
     outline: none;
+  }
+
+  &:hover {
+    color: $brand-color;
+    border-color: $brand-color;
+    background-color: $gray-30;
   }
 }
 

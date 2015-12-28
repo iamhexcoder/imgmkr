@@ -1,5 +1,9 @@
 // Custom Inputs
 // -------------
+input,
+label {
+  margin-right: 30px;
+}
 
 .file-input {
   width: 0.1px;
@@ -63,7 +67,7 @@ input[type=range] {
 
   // Track Style
   &::-webkit-slider-runnable-track { @include range-track(); }
-  &:focus::-webkit-slider-runnable-track { background: darken(#bada55, 25%); }
+  &:focus::-webkit-slider-runnable-track { background: darken($brand-color, 25%); }
   &::-moz-range-track { @include range-track(); }
   &:-ms-track { @include range-track(); }
 
