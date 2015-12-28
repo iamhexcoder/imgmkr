@@ -9,6 +9,7 @@
     var $fileInput    = document.getElementById('master-file');
     var $masterImg    = document.getElementById('master-image');
     var $profiles     = $('#profile-images');
+    var $nav          = $('#site-nav');
 
     var imgCropLength = $imageCropper.length;
     var cropperCount  = 1;
@@ -16,42 +17,16 @@
     var speedOut      = 1500;
 
 
-    // Markup
-    // $.getJSON( "dist/content.json", function( data ) {
-    //   var html;
-    //   console.log(data);
-
-    //   // Profiles
-    //   if(data.profiles) {
-    //     var profiles = data.profiles;
-    //     console.log(profiles);
-    //     html += '<section id="profile-images" class="type-wrapper">';
-
-    //     $.each(profiles.networks, function(i, item) {
-    //       console.log(i);
-    //       console.log(item);
-
-    //       html += '<section class="img-section">' +
-    //                 '<header class="img-section--title">' +
-    //                     '<p>' + item.name + ' Profile: ' + item.width + ' x ' + item.height + '</p>' +
-    //                 '</header>' +
-    //                 '<div class="cropit-image-preview img-' + i + '--profile" style="height: ' + item.height + 'px; width: ' + item.width + 'px;"></div>' +
-    //                 '<div class="img-section--ui">' +
-    //                   '<input type="range" class="cropit-image-zoom-input" />' +
-    //                   '<input type="file" name="' + i + '-profile" id="' + i + '-profile" class="cropit-image-input file-input" />' +
-    //                     '<label class="file-label" for="' + i + '-profile"><i class="fa fa-image"></i>Use Custom Image</label>' +
-    //                   '<button class="dl export">Download Single Image</button>' +
-    //                 '</div>' +
-    //               '</section>';
-    //     });
-
-    //     html += '</section>';
-
-    //     $profiles.append(html);
-    //   }
-
-    // });
-
+    // Navigation
+    // ------------------------------------------------------------------------
+    var sections = [];
+    $('.type-section').each(function(){
+      var $this = $(this);
+      var html = '<a href="#' + $this.attr('id') + '" class="nav-item">' + $this.attr('data-title') + '</a>';
+      sections.push(html);
+    });
+    var content = sections.join('');
+    $nav.append(content);
 
     // Show or hide curtain
     // ------------------------------------------------------------------------
@@ -134,11 +109,60 @@
 
     // Download all images
     // ------------------------------------------------------------------------
-    $('.export').click(function(event) {
-      event.preventDefault();
+    var dlClick = 0;
 
-      var imageData = $(this).parent().cropit('export');
-      window.open(imageData);
+    function downloadURI(uri, name) {
+      var link = document.createElement("a");
+      link.download = name;
+      link.href = uri;
+      link.click();
+    }
+
+    $('.export').click(function() {
+
+      var $this = $(this);
+      var $editor = $this.closest('.img-section');
+      var name = $editor.find('.file-input').attr('name');
+
+      var imgSrc = $editor.cropit('imageSrc');
+      var offset = $editor.cropit('offset');
+      var zoom = $editor.cropit('zoom');
+      var previewSize = $editor.cropit('previewSize');
+      var exportZoom = $editor.cropit('exportZoom');
+      var picaImageData = '';
+
+
+      // Draw image in original size on a canvas
+      var originalCanvas = document.createElement('canvas');
+      originalCanvas.width = previewSize.width / zoom;
+      originalCanvas.height = previewSize.height / zoom;
+      var ctx = originalCanvas.getContext('2d');
+      ctx.drawImage(img, offset.x / zoom, offset.y / zoom);
+
+      // Use pica to resize image and paint on destination canvas
+      var zoomedCanvas = document.createElement('canvas');
+      zoomedCanvas.width = previewSize.width * exportZoom;
+      zoomedCanvas.height = previewSize.height * exportZoom;
+      pica.resizeCanvas(originalCanvas, zoomedCanvas, function(err) {
+
+        if (err) {
+          return console.log(err);
+        }
+        // Resizing completed, read resized image data
+        picaImageData = zoomedCanvas.toDataURL();
+
+        // window.open(picaImageData);
+
+        // To force a download...
+        // var imageForce = picaImageData.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+        downloadURI(picaImageData, name);
+        // window.open(imageForce);
+      });
+
+
+
+      // var imageData = $(this).closest('.img-section').cropit('export');
+      // window.open(imageData);
 
       // If you wanna force a download
       // var imageForce = imageData.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
@@ -146,6 +170,57 @@
     });
 
 
+    $('#master-download').click(function(){
+      var zip = new JSZip();
+      $imageCropper.each(function(){
+        var $this = $(this);
+        var img = $this.cropit('export');
+        var imgFile = img.replace('data:image/png;base64,', '');
+        var name = $this.find('.file-input').attr('name');
+        var filename = name + '.png';
+
+        zip.file( filename, imgFile, {base64: true});
+
+      //   var $this = $(this);
+      //   var $editor = $this.closest('.img-section');
+      //   var name = $editor.find('.file-input').attr('name');
+      //   var filename = name + '.png';
+
+      //   var imgSrc = $editor.cropit('imageSrc');
+      //   var offset = $editor.cropit('offset');
+      //   var zoom = $editor.cropit('zoom');
+      //   var previewSize = $editor.cropit('previewSize');
+      //   var exportZoom = $editor.cropit('exportZoom');
+      //   var picaImageData = '';
+
+
+      //   // Draw image in original size on a canvas
+      //   var originalCanvas = document.createElement('canvas');
+      //   originalCanvas.width = previewSize.width / zoom;
+      //   originalCanvas.height = previewSize.height / zoom;
+      //   var ctx = originalCanvas.getContext('2d');
+      //   ctx.drawImage(img, offset.x / zoom, offset.y / zoom);
+
+      //   // Use pica to resize image and paint on destination canvas
+      //   var zoomedCanvas = document.createElement('canvas');
+      //   zoomedCanvas.width = previewSize.width * exportZoom;
+      //   zoomedCanvas.height = previewSize.height * exportZoom;
+      //   pica.resizeCanvas(originalCanvas, zoomedCanvas, function(err) {
+
+      //     if (err) {
+      //       return console.log(err);
+      //     }
+      //     // Resizing completed, read resized image data
+      //     picaImageData = zoomedCanvas.toDataURL();
+      //     var imgData = picaImageData.replace('data:image/png;base64,', '');
+      //     zip.file( name, imgData, {base64: true});
+      //   });
+
+      });
+
+      var content = zip.generate({type:"blob"});
+      saveAs(content, "example.zip");
+    });
 
 
   }

@@ -22,23 +22,27 @@
     </div>
   </div>
 
+  <nav id="site-nav" class="navigation"></nav>
+
   <h1>Master Image</h1>
   <section class="master-image">
+    <div id="master-image" class="master-image--image"></div>
     <input type="file" name="master-file" id="master-file" class="master-image-input file-input" />
       <label class="file-label" for="master-file">Upload New Image</label>
-    <div id="master-image" class="master-image--image"></div>
   </section>
 
 
   <!-- PROFILE IMAGES -->
   <section id="profile-images" class="type-section" data-title="Profile Images">
 
+    <h1>Profile Images</h1>
+
     <!-- Twitter -->
     <section class="img-section">
       <header class="img-section--title">
         <p>Twitter Profile: 400 x 400</p>
       </header>
-      <div class="cropit-image-preview img-twitter--profile"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-twitter--profile"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="twitter-profile" id="twitter-profile" class="cropit-image-input file-input" />
@@ -52,7 +56,7 @@
       <header class="img-section--title">
         <p>Facebook Profile: 180 x 180</p>
       </header>
-      <div class="cropit-image-preview img-facebook--profile"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-facebook--profile"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="facebook-profile" id="facebook-profile" class="cropit-image-input file-input" />
@@ -66,7 +70,7 @@
       <header class="img-section--title">
         <p>Google Profile: 250 x 250</p>
       </header>
-      <div class="cropit-image-preview img-google--profile"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-google--profile"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="google-profile" id="google-profile" class="cropit-image-input file-input" />
@@ -80,7 +84,7 @@
       <header class="img-section--title">
         <p>Pinterest Profile: 165 x 165</p>
       </header>
-      <div class="cropit-image-preview img-pinterest--profile"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-pinterest--profile"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="pinterest-profile" id="pinterest-profile" class="cropit-image-input file-input" />
@@ -94,7 +98,7 @@
       <header class="img-section--title">
         <p>Linked In Profile: 400 x 400</p>
       </header>
-      <div class="cropit-image-preview img-linkedin--profile"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-linkedin--profile"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="linkedin-profile" id="linkedin-profile" class="cropit-image-input file-input" />
@@ -108,7 +112,7 @@
       <header class="img-section--title">
         <p>Instagram Profile: 110 x 110</p>
       </header>
-      <div class="cropit-image-preview img-instagram--profile"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-instagram--profile"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="instagram-profile" id="instagram-profile" class="cropit-image-input file-input" />
@@ -122,7 +126,7 @@
       <header class="img-section--title">
         <p>Tumblr Profile: 128 x 128</p>
       </header>
-      <div class="cropit-image-preview img-tumblr--profile"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-tumblr--profile"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="tumblr-profile" id="tumblr-profile" class="cropit-image-input file-input" />
@@ -136,7 +140,7 @@
 
 
   <!-- TWITTER -->
-  <section id="twitter-images" class="type-section" data-title="Twitter">
+  <section id="twitter" class="type-section" data-title="Twitter">
     <h1>Twitter</h1>
 
     <!-- Twitter Header Image -->
@@ -144,7 +148,7 @@
       <header class="img-section--title">
         <p>Profile Header</p>
       </header>
-      <div class="cropit-image-preview img-twitter--header"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-twitter--header"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="twitter-header" id="twitter-header" class="cropit-image-input file-input" />
@@ -158,7 +162,7 @@
       <header class="img-section--title">
         <p>In-Stream Photo</p>
       </header>
-      <div class="cropit-image-preview img-twitter--instream"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-twitter--instream"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="twitter-in-stream" id="twitter-in-stream" class="cropit-image-input file-input" />
@@ -171,7 +175,7 @@
 
 
   <!-- FACEBOOK -->
-  <section id="facebookr-images" class="type-section" data-title="Facebook">
+  <section id="facebook" class="type-section" data-title="Facebook">
     <h1>Facebook</h1>
 
     <!-- Facebook Cover Image -->
@@ -179,7 +183,7 @@
       <header class="img-section--title">
         <p>Cover Photo</p>
       </header>
-      <div class="cropit-image-preview img-facebook--cover-photo"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-facebook--cover-photo"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="facebook-cover-photo" id="facebook-cover-photo" class="cropit-image-input file-input" />
@@ -193,7 +197,7 @@
       <header class="img-section--title">
         <p>Shared Image</p>
       </header>
-      <div class="cropit-image-preview img-facebook--shared"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-facebook--shared"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="facebook-shared" id="facebook-shared" class="cropit-image-input file-input" />
@@ -207,7 +211,7 @@
       <header class="img-section--title">
         <p>Shared Link Image</p>
       </header>
-      <div class="cropit-image-preview img-facebook--shared-link"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-facebook--shared-link"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="facebook-shared-link" id="facebook-shared-link" class="cropit-image-input file-input" />
@@ -221,7 +225,7 @@
       <header class="img-section--title">
         <p>Highlighted Image</p>
       </header>
-      <div class="cropit-image-preview img-facebook--highlighted"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-facebook--highlighted"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="facebook-highlighted" id="facebook-highlighted" class="cropit-image-input file-input" />
@@ -233,7 +237,7 @@
   </section>
 
   <!-- GOOGLE -->
-  <section id="google-images" class="type-section" data-title="Google">
+  <section id="google" class="type-section" data-title="Google">
     <h1>Google</h1>
 
     <!-- Google Cover Image -->
@@ -241,7 +245,7 @@
       <header class="img-section--title">
         <p>Cover Image</p>
       </header>
-      <div class="cropit-image-preview img-google--cover"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-google--cover"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="google-cover" id="google-cover" class="cropit-image-input file-input" />
@@ -255,7 +259,7 @@
       <header class="img-section--title">
         <p>Shared Image</p>
       </header>
-      <div class="cropit-image-preview img-google--shared"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-google--shared"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="google-shared" id="google-shared" class="cropit-image-input file-input" />
@@ -269,7 +273,7 @@
       <header class="img-section--title">
         <p>Shared Link Image</p>
       </header>
-      <div class="cropit-image-preview img-google--shared-link"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-google--shared-link"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="google-shared-link" id="google-shared-link" class="cropit-image-input file-input" />
@@ -282,7 +286,7 @@
 
 
   <!-- Instagram -->
-  <section id="instagram-images" class="type-section" data-title="Instagram">
+  <section id="instagram" class="type-section" data-title="Instagram">
     <h1>Instagram</h1>
 
     <!-- Instagram Basic Image -->
@@ -290,7 +294,7 @@
       <header class="img-section--title">
         <p>Square Image</p>
       </header>
-      <div class="cropit-image-preview img-instagram--square"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-instagram--square"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="instagram-square" id="instagram-square" class="cropit-image-input file-input" />
@@ -302,7 +306,7 @@
   </section>
 
   <!-- Tumblr -->
-  <section id="tumblr-images" class="type-section" data-title="Tumblr">
+  <section id="tumblr" class="type-section" data-title="Tumblr">
     <h1>Tumblr</h1>
 
     <!-- Tumblr Dash Image -->
@@ -310,7 +314,7 @@
       <header class="img-section--title">
         <p>Dashboard Image</p>
       </header>
-      <div class="cropit-image-preview img-tumblr--dash"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-tumblr--dash"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="tumblr-dash" id="tumblr-dash" class="cropit-image-input file-input" />
@@ -324,7 +328,7 @@
 
 
   <!-- YouTube -->
-  <section id="youtube-images" class="type-section" data-title="YouTube">
+  <section id="youtube" class="type-section" data-title="YouTube">
     <h1>YouTube</h1>
 
     <!-- Youtube Cover Image -->
@@ -332,7 +336,7 @@
       <header class="img-section--title">
         <p>Channel Cover Image</p>
       </header>
-      <div class="cropit-image-preview img-youtube--cover"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-youtube--cover"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="youtube-cover" id="youtube-cover" class="cropit-image-input file-input" />
@@ -346,7 +350,7 @@
       <header class="img-section--title">
         <p>Video Image</p>
       </header>
-      <div class="cropit-image-preview img-youtube--video"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-youtube--video"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="youtube-video" id="youtube-video" class="cropit-image-input file-input" />
@@ -359,7 +363,7 @@
 
 
   <!-- Linked In -->
-  <section id="linkedin-images" class="type-section" data-title="YouTube">
+  <section id="linkedin" class="type-section" data-title="LinkedIn">
     <h1>LinkedIn</h1>
 
     <!-- Linked In Career Cover Image -->
@@ -367,7 +371,7 @@
       <header class="img-section--title">
         <p>Career Cover Image</p>
       </header>
-      <div class="cropit-image-preview img-linkedin--cover"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-linkedin--cover"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="linkedin-cover" id="linkedin-cover" class="cropit-image-input file-input" />
@@ -381,7 +385,7 @@
       <header class="img-section--title">
         <p>Banner Image</p>
       </header>
-      <div class="cropit-image-preview img-linkedin--banner"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-linkedin--banner"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="linkedin-banner" id="linkedin-banner" class="cropit-image-input file-input" />
@@ -395,7 +399,7 @@
       <header class="img-section--title">
         <p>Logo Image</p>
       </header>
-      <div class="cropit-image-preview img-linkedin--logo"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-linkedin--logo"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="linkedin-logo" id="linkedin-logo" class="cropit-image-input file-input" />
@@ -409,7 +413,7 @@
       <header class="img-section--title">
         <p>Logo Image</p>
       </header>
-      <div class="cropit-image-preview img-linkedin--square-logo"></div>
+      <div class="img-section--image-wrapper"><div class="cropit-image-preview img-linkedin--square-logo"></div></div>
       <div class="img-section--ui">
         <input type="range" class="cropit-image-zoom-input" />
         <input type="file" name="linkedin-square-logo" id="linkedin-square-logo" class="cropit-image-input file-input" />

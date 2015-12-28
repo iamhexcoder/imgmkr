@@ -20,7 +20,8 @@
     "modernizr": "2.8.3",
     "cropit": "~0.4.5",
     "pica": "~1.1.1",
-    "jszip": "Stuk/jszip#~2.5.0"
+    "jszip": "Stuk/jszip#~2.5.0",
+    "FileSaver": "*"
   },
   "overrides": {
     "modernizr": {
@@ -29,6 +30,9 @@
     },
     "jquery": {
       "ignore": true
+    },
+    "FileSaver": {
+      "main": "./FileSaver.js"
     }
   }
 }
