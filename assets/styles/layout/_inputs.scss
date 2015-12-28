@@ -1,0 +1,72 @@
+// Custom Inputs
+// -------------
+
+.file-input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.file-label {
+  @extend %button;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  i {
+    margin-right: 20px;
+  }
+}
+
+button {
+  @extend %button;
+
+  &.master-dl {
+    display: block;
+  }
+}
+
+// Range
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 200px; /* Specific width is required for Firefox. */
+  transtion: all 0.2s ease;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  ::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    background: transparent; /* Hides the slider so custom styles can be added */
+    border-color: transparent;
+    color: transparent;
+  }
+
+  // Thumb Style
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    @include range-thumb();
+  }
+
+  &::-moz-range-thumb {  @include range-thumb(); }
+  &::-ms-thumb { @include range-thumb(); }
+
+  // Track Style
+  &::-webkit-slider-runnable-track { @include range-track(); }
+  &:focus::-webkit-slider-runnable-track { background: darken(#bada55, 25%); }
+  &::-moz-range-track { @include range-track(); }
+  &:-ms-track { @include range-track(); }
+
+}
+
+

@@ -50,6 +50,7 @@
     "browser-sync": "2.7.13"
   },
   "dependencies": {
-    "npm": "^3.5.2"
+    "npm": "^3.5.2",
+    "pica": "^1.1.1"
   }
 }

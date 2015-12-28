@@ -2,3 +2,55 @@
 // ----
 // Page level styles
 
+
+// Curtain
+// -------
+.curtain {
+  background-color: #fff;
+}
+
+.curtain--content {
+
+}
+
+
+// Master Image
+// ------------
+.master-image {
+  overflow: hidden;
+  width: 100%;
+}
+
+.master-image--image {
+  width: 50%;
+  float: right;
+}
+
+
+// Cropit Images
+// -------------
+.cropit-image-preview {
+  overflow: hidden;
+}
+
+// Twitter Header: 1500x500
+.img-twitter--header {
+  width: 1500px;
+  height: 500px;
+}
+
+.img-twitter--profile {
+  width: 400px;
+  height: 400px;
+}
+
+.img-twitter--in-stream {
+  width: 220px;
+  height: 440px;
+}
+
+.img-twitter--shared-photo {
+  width: 1024px;
+  height: 512px;
+}
+

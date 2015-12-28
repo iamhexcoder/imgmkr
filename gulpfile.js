@@ -195,7 +195,7 @@ gulp.task('build', [
  */
 gulp.task('serve', function() {
   browserSync.init({
-      proxy: "CONFIG_THIS"
+      proxy: "imgmkr.dev"
   });
 
   gulp.watch([path + 'styles/**/*'], ['style_task']);

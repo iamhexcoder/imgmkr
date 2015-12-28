@@ -4,18 +4,67 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Mercury</title>
+  <title>imgmkr</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- build:css -->
   <link rel="stylesheet" href="src/styles.css">
   <!-- endbuild -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <script src="dist/modernizr-2.8.3.min.js"></script>
 </head>
 
 <body>
-  Welcome to Mercury.
+  <div id="curtain" class="cover-fix curtain">
+    <div class="center-content curtain--content">
+      <p>Make your images better.</p>
+    </div>
+  </div>
+
+  <h1>Master Image</h1>
+  <section class="master-image">
+    <input type="file" name="master-file" id="master-file" class="master-image-input file-input" />
+      <label class="file-label" for="master-file">Change All Images</label>
+    <div id="master-image" class="master-image--image"></div>
+  </section>
+
+  <h1>Twitter</h1>
+  <div class="img-section">
+    <div class="cropit-image-preview img-twitter--header">
+    </div>
+    <input type="range" class="cropit-image-zoom-input" />
+    <input type="file" name="twitter-header" id="twitter-header" class="cropit-image-input file-input" />
+      <label class="file-label" for="twitter-header"><i class="fa fa-image"></i>Use Custom Image</label>
+    <button class="dl export">Download Single Image</button>
+  </div>
+
+  <div class="img-section">
+    <div class="cropit-image-preview img-twitter--profile"></div>
+    <input type="range" class="cropit-image-zoom-input" />
+    <input type="file" name="twitter-profile" id="twitter-profile" class="cropit-image-input file-input" />
+      <label class="file-label" for="twitter-profile"><i class="fa fa-image"></i>Use Custom Image</label>
+    <button class="dl export">Download Single Image</button>
+  </div>
+
+  <div class="img-section">
+    <div class="cropit-image-preview img-twitter--in-stream"></div>
+    <input type="range" class="cropit-image-zoom-input" />
+    <input type="file" name="twitter-in-stream" id="twitter-in-stream" class="cropit-image-input file-input" />
+      <label class="file-label" for="twitter-in-stream"><i class="fa fa-image"></i>Use Custom Image</label>
+    <button class="dl export">Download Single Image</button>
+  </div>
+  <div class="img-section">
+    <div class="cropit-image-preview img-twitter--shared-photo"></div>
+    <input type="range" class="cropit-image-zoom-input" />
+    <input type="file" name="twitter-shared" id="twitter-shared" class="cropit-image-input file-input" />
+      <label class="file-label" for="twitter-shared"><i class="fa fa-image"></i>Use Custom Image</label>
+    <button class="dl export">Download Single Image</button>
+  </div>
+
+  <button id="master-download" class="dl master-dl">Download All</button>
+
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="dist/jquery.min.js"><\/script>')</script>

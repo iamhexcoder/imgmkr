@@ -17,7 +17,10 @@
     "bourbon": "~4.2.6",
     "neat": "~1.7.2",
     "normalize-scss": "latest",
-    "modernizr": "2.8.3"
+    "modernizr": "2.8.3",
+    "cropit": "~0.4.5",
+    "pica": "~1.1.1",
+    "jszip": "Stuk/jszip#~2.5.0"
   },
   "overrides": {
     "modernizr": {
