@@ -10,6 +10,7 @@
     var $masterImg    = document.getElementById('master-image');
     var $profiles     = $('#profile-images');
     var $nav          = $('#site-nav');
+    var demoImg      = 'http://j2toolkit.github.io/imgmkr/dist/images/demo.jpg';
 
     var imgCropLength = $imageCropper.length;
     var cropperCount  = 1;
@@ -45,7 +46,7 @@
     // Load demo image into Master Image
     // ------------------------------------------------------------------------
     var img = new Image();
-    img.src = 'http://localhost:3000/dist/images/demo.jpg';
+    img.src = demoImg;
     $masterImg.appendChild(img);
 
 
@@ -55,7 +56,7 @@
     $(window).load(function(){
       $imageCropper.cropit({
         imageState: {
-          src: 'http://localhost:3000/dist/images/demo.jpg',
+          src: demoImg,
         },
         onImageLoaded: function() {
           curtainDisplay();
@@ -151,22 +152,9 @@
         // Resizing completed, read resized image data
         picaImageData = zoomedCanvas.toDataURL();
 
-        // window.open(picaImageData);
-
-        // To force a download...
-        // var imageForce = picaImageData.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+        // Force download
         downloadURI(picaImageData, name);
-        // window.open(imageForce);
       });
-
-
-
-      // var imageData = $(this).closest('.img-section').cropit('export');
-      // window.open(imageData);
-
-      // If you wanna force a download
-      // var imageForce = imageData.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
-      // window.open(imageForce);
     });
 
 
@@ -180,41 +168,6 @@
         var filename = name + '.png';
 
         zip.file( filename, imgFile, {base64: true});
-
-      //   var $this = $(this);
-      //   var $editor = $this.closest('.img-section');
-      //   var name = $editor.find('.file-input').attr('name');
-      //   var filename = name + '.png';
-
-      //   var imgSrc = $editor.cropit('imageSrc');
-      //   var offset = $editor.cropit('offset');
-      //   var zoom = $editor.cropit('zoom');
-      //   var previewSize = $editor.cropit('previewSize');
-      //   var exportZoom = $editor.cropit('exportZoom');
-      //   var picaImageData = '';
-
-
-      //   // Draw image in original size on a canvas
-      //   var originalCanvas = document.createElement('canvas');
-      //   originalCanvas.width = previewSize.width / zoom;
-      //   originalCanvas.height = previewSize.height / zoom;
-      //   var ctx = originalCanvas.getContext('2d');
-      //   ctx.drawImage(img, offset.x / zoom, offset.y / zoom);
-
-      //   // Use pica to resize image and paint on destination canvas
-      //   var zoomedCanvas = document.createElement('canvas');
-      //   zoomedCanvas.width = previewSize.width * exportZoom;
-      //   zoomedCanvas.height = previewSize.height * exportZoom;
-      //   pica.resizeCanvas(originalCanvas, zoomedCanvas, function(err) {
-
-      //     if (err) {
-      //       return console.log(err);
-      //     }
-      //     // Resizing completed, read resized image data
-      //     picaImageData = zoomedCanvas.toDataURL();
-      //     var imgData = picaImageData.replace('data:image/png;base64,', '');
-      //     zip.file( name, imgData, {base64: true});
-      //   });
 
       });
 
