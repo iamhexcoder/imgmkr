@@ -43,6 +43,17 @@
 
 
 
+    // Create Download Link
+    // ------------------------------------------------------------------------
+    function downloadURI(uri, name) {
+      var link = document.createElement("a");
+      link.download = name;
+      link.href = uri;
+      link.click();
+    }
+
+
+
     // Load demo image into Master Image
     // ------------------------------------------------------------------------
     var img = new Image();
@@ -108,56 +119,21 @@
 
 
 
-    // Download all images
+    // Download single image
     // ------------------------------------------------------------------------
-    var dlClick = 0;
-
-    function downloadURI(uri, name) {
-      var link = document.createElement("a");
-      link.download = name;
-      link.href = uri;
-      link.click();
-    }
-
     $('.export').click(function() {
-
       var $this = $(this);
       var $editor = $this.closest('.img-section');
+      var imgData = $editor.cropit('export');
       var name = $editor.find('.file-input').attr('name');
-
-      var imgSrc = $editor.cropit('imageSrc');
-      var offset = $editor.cropit('offset');
-      var zoom = $editor.cropit('zoom');
-      var previewSize = $editor.cropit('previewSize');
-      var exportZoom = $editor.cropit('exportZoom');
-      var picaImageData = '';
-
-
-      // Draw image in original size on a canvas
-      var originalCanvas = document.createElement('canvas');
-      originalCanvas.width = previewSize.width / zoom;
-      originalCanvas.height = previewSize.height / zoom;
-      var ctx = originalCanvas.getContext('2d');
-      ctx.drawImage(img, offset.x / zoom, offset.y / zoom);
-
-      // Use pica to resize image and paint on destination canvas
-      var zoomedCanvas = document.createElement('canvas');
-      zoomedCanvas.width = previewSize.width * exportZoom;
-      zoomedCanvas.height = previewSize.height * exportZoom;
-      pica.resizeCanvas(originalCanvas, zoomedCanvas, function(err) {
-
-        if (err) {
-          return console.log(err);
-        }
-        // Resizing completed, read resized image data
-        picaImageData = zoomedCanvas.toDataURL();
-
-        // Force download
-        downloadURI(picaImageData, name);
-      });
+      console.log(imgData);
+      downloadURI(imgData, name);
     });
 
 
+
+    // Download all images
+    // ------------------------------------------------------------------------
     $('#master-download').click(function(){
       var zip = new JSZip();
       $imageCropper.each(function(){
