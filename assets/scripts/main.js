@@ -10,7 +10,7 @@
     var $masterImg    = document.getElementById('master-image');
     var $profiles     = $('#profile-images');
     var $nav          = $('#site-nav');
-    var demoImg      = 'http://j2toolkit.github.io/imgmkr/dist/images/demo.jpg';
+    var demoImg      = 'http://j2made.github.io/imgmkr/dist/images/demo.jpg';
 
     var imgCropLength = $imageCropper.length;
     var cropperCount  = 1;
