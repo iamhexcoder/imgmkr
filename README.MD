@@ -2,7 +2,9 @@
 
 Make social media images from a master image, and/or use specific images for each.
 
-Built using [Mercury](https://github.com/j2toolkit/mercury)
+[Demo](http://j2made.github.io/imgmkr/)
+
+Built using [Mercury](https://github.com/j2made/mercury)
 
 ## ToDo/Roadmap
 
