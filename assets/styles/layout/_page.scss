@@ -14,12 +14,24 @@
 
 }
 
+// Content Wrapper
+// ---------------
+.main-content {
+  text-align: center;
+
+  @include media($small) {
+    padding: 0 50px;
+  }
+}
+
 
 // Master Image
 // ------------
 .master-image {
   overflow: hidden;
   width: 100%;
+  padding-bottom: rem(54);
+  border-bottom: 1px solid $black;
 }
 
 .master-image--image {
@@ -29,20 +41,27 @@
     max-width: 100%;
     max-height: 600px;
     display: block;
-    // margin: 0 auto;
+    margin: 0 auto rem(35);
   }
 }
 
 // Sections
 .type-section {
   padding: 50px 0;
+  border-bottom: 1px solid $black;
+  width: 100%;
 }
 
 
 // Cropit Images
 // -------------
+.img-section {
+  margin-bottom: rem(100);
+}
+
 .cropit-image-preview {
   overflow: hidden;
+  margin: 0 auto rem(42);
 }
 
 .img-section--ui {
@@ -50,10 +69,19 @@
   margin: 40px auto 80px;
 }
 
+.img-section--ui--range-slider {
+  margin-bottom: 36px;
+}
+
 .img-section--title {
-  margin-bottom: 25px;
-  font-weight: 600;
-  font-size: 14px;
+  margin-bottom: 28px;
+  font-weight: 400;
+  letter-spacing: $default-ls;
+}
+
+.img-section--image-wrapper {
+  overflow: scroll;
+  width: 100%;
 }
 
 

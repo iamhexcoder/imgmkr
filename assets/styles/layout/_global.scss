@@ -28,9 +28,9 @@ body {
   font-family: $base-font-family;
   font-size: $base-font-size;
   line-height: $base-line-height;
-  padding: 30px;
   margin: 0 auto;
   max-width: 1800px;
+  transition: background-color 1s linear;
 }
 
 
@@ -121,6 +121,16 @@ img {
     clear: both;
 }
 
+
+
+// KEYFRAMES
+@keyframes colorCraze {
+  0%  {background-color: #DBCEDD;}
+  25% {background-color: #D3E4D1;}
+  50% {background-color: #D4EEF1;}
+  75% {background-color: #FCFAD5;}
+  100%  {background-color: #DBCEDD;}
+}
 
 
 

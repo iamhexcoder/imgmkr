@@ -10,7 +10,7 @@
     var $masterImg    = document.getElementById('master-image');
     var $profiles     = $('#profile-images');
     var $nav          = $('#site-nav');
-    var demoImg      = 'http://j2made.github.io/imgmkr/dist/images/demo.jpg';
+    var demoImg      = 'http://j2made.github.io/imgmkr/dist/images/unsplash_matterhorn.jpg';
 
     var imgCropLength = $imageCropper.length;
     var cropperCount  = 1;
@@ -23,8 +23,10 @@
     var sections = [];
     $('.type-section').each(function(){
       var $this = $(this);
-      var html = '<a href="#' + $this.attr('id') + '" class="nav-item">' + $this.attr('data-title') + '</a>';
-      sections.push(html);
+      if( $this.attr('data-title') ) {
+        var html = '<a href="#' + $this.attr('id') + '" class="nav-item">' + $this.attr('data-title') + '</a>';
+        sections.push(html);
+      }
     });
     var content = sections.join('');
     $nav.append(content);
@@ -157,5 +159,37 @@
   $(document).ready(run_it_all);
 
 
+  var colors = [];
+
+  $(window).scroll(function(){
+
+    $('.type-section').each(function(){
+      var $this = $(this);
+      var thisColor = $this.attr('data-color');
+
+      // Return if no color or if color has already been processed
+      if(!thisColor) { return; }
+      if( colors.indexOf(thisColor) >=0 ) { return; }
+
+      var elTop = $this.offset().top;
+      var wBot = $(window).height() + $(window).scrollTop();
+
+      if(elTop > wBot) {
+        $('body').css('background-color', thisColor);
+        return false;
+      }
+
+    });
+
+  });
 
 })(jQuery);
+
+
+
+
+
+
+
+
+
