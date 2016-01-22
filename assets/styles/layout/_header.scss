@@ -1,0 +1,108 @@
+.page-header {
+
+}
+
+.masthead {
+  background-color: $brand-color;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  transition: height 0.4s ease-in;
+
+  h1 {
+    font-size: rem(56);
+  }
+
+  p {
+    font-size: rem(18);
+  }
+}
+
+.masthead--content {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+}
+
+.masthead-scroll {
+  display: none;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: $black;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: rem(2);
+
+  span {
+    display: block;
+  }
+
+  svg {
+    display: block;
+    width: 20px;
+    height: 23px;
+    fill: $black;
+    margin: rem(18) auto 0;
+  }
+}
+
+
+// Navigation
+.page-navigation {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: rem(30) 0;
+
+  &.fix-it {
+    position: fixed;
+    background-color: transparentize($white, 0.5);
+  }
+
+  .row {
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  a {
+    color: $black;
+    text-decoration: none;
+    letter-spacing: $default-ls;
+    text-transform: uppercase;
+    padding-right: rem(20);
+    font-size: 11px;
+  }
+}
+
+p.logo {
+  @include span-columns(6);
+  text-transform: uppercase;
+  letter-spacing: rem(15);
+  font-size: $base-font-size;
+
+  @include media($medium) {
+    @include span-columns(2);
+  }
+}
+
+.navigation {
+  text-align: right;
+  @include span-columns(9);
+}
+
+.fa-info-circle {
+  @include span-columns(1);
+  text-align: right;
+  padding-top: 2px;
+}
+
+
+
+

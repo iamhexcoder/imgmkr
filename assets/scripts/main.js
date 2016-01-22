@@ -154,12 +154,29 @@
     });
 
 
+    var $header = $('#js-header');
+    var $navigation = $('#js-navigation');
+    var headerH = $header.height();
+
+    $(window).scroll(function(){
+      if($(window).scrollTop() >= headerH ) {
+        $navigation.addClass('fix-it');
+      } else {
+        $navigation.removeClass('fix-it');
+      }
+    });
+
+
   }
 
   $(document).ready(run_it_all);
 
+  $(window).load(function(){
 
-  var colors = [];
+    $('#js-header').css('height', '95vh');
+    $('#smooth-scroll').fadeIn(750);
+
+  });
 
   $(window).scroll(function(){
 
@@ -169,7 +186,6 @@
 
       // Return if no color or if color has already been processed
       if(!thisColor) { return; }
-      if( colors.indexOf(thisColor) >=0 ) { return; }
 
       var elTop = $this.offset().top;
       var wBot = $(window).height() + $(window).scrollTop();
@@ -178,9 +194,7 @@
         $('body').css('background-color', thisColor);
         return false;
       }
-
     });
-
   });
 
 })(jQuery);

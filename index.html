@@ -18,18 +18,41 @@
 </head>
 
 <body>
-  <div id="curtain" class="cover-fix curtain">
+  <!-- <div id="curtain" class="cover-fix curtain">
     <div class="center-content curtain--content">
       <p>Make your images better.</p>
     </div>
-  </div>
+  </div> -->
 
-  <nav id="site-nav" class="navigation"></nav>
+  <header id="js-header" class="masthead">
+    <section id="js-navigation" class="page-navigation">
+      <div class="row">
+        <p class="logo">imgmkr</p>
+        <nav id="site-nav" class="navigation"></nav>
+        <i class="fa fa-info-circle"></i>
+      </div>
+    </section>
+    <div class="masthead--content">
+      <h1>Make images for the social world.</h1>
+      <p>Upload, crop and download multiple social media image sizes at once from one file.</p>
+    </div>
+    <a id="smooth-scroll" class="masthead-scroll" href="#">
+      <span>Get Started</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="26.575" height="29.548" viewBox="0 0 26.575 29.548">
+        <title>arrow</title>
+        <rect x="12.606" width="1.362" height="28.596" />
+        <polygon points="13.287 29.548 0 16.261 0.963 15.299 13.287 27.622 25.612 15.299 26.575 16.261 13.287 29.548" />
+      </svg>
+    </a>
+  </header>
 
-  <main class="main-content">
 
-    <h1>Master Image</h1>
+
+  <main id="js-main-content" class="main-content">
+
     <section class="master-image type-section" data-color="#fff">
+      <h1>Master Image</h1>
+
       <div id="master-image" class="master-image--image"></div>
       <input type="file" name="master-file" id="master-file" class="master-image-input file-input" />
         <label class="file-label" for="master-file">Upload New Image</label>
