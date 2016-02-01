@@ -29,9 +29,17 @@
       <div class="row">
         <p class="logo">imgmkr</p>
         <nav id="site-nav" class="navigation"></nav>
-        <i class="fa fa-info-circle"></i>
+        <i class="js-modal-toggle fa fa-info-circle"></i>
       </div>
     </section>
+    <div class="masthead--image">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1289.031 623.031">
+        <title>wireframe</title>
+        <path d="M1289.031,623.031H0V0H1289.031V623.031ZM2,621.031H1287.031V2H2V621.031Z" style="fill: #fff"/>
+        <rect x="643.759" y="-402.496" width="2" height="1428.205" transform="translate(84.121 757.137) rotate(-64.268)" style="fill: #fff"/>
+        <rect x="-69.343" y="310.606" width="1428.205" height="2" transform="translate(-71.35 310.917) rotate(-25.739)" style="fill: #fff"/>
+      </svg>
+    </div>
     <div class="masthead--content">
       <h1>Make images for the social world.</h1>
       <p>Upload, crop and download multiple social media image sizes at once from one file.</p>
@@ -50,12 +58,19 @@
 
   <main id="js-main-content" class="main-content">
 
-    <section class="master-image type-section" data-color="#fff">
+    <section id="master-image-section" class="master-image type-section" data-color="#fff">
       <h1>Master Image</h1>
 
       <div id="master-image" class="master-image--image"></div>
       <input type="file" name="master-file" id="master-file" class="master-image-input file-input" />
         <label class="file-label" for="master-file">Upload New Image</label>
+    </section>
+
+    <!-- Checkboxes -->
+    <section id="js-checkboxes" class="type-select">
+      <h1>Filter Networks</h1>
+      <p>Only select the images you need</p>
+      <form></form>
     </section>
 
 
@@ -547,9 +562,41 @@
 
     </section>
 
-    <button id="master-download" class="dl master-dl">Download All</button>
+    <section class="download-all blocked">
+      <div class="warning">
+        <p>You must update the <a href="#master-image-section">Master Image</a> before being able to download all.</p>
+      </div>
+      <div class="note">
+        <h1>Download All</h1>
+      </div>
+      <button id="master-download" class="dl master-dl">Download All</button>
+      <div class="note">
+        <p>Start all over by updating the <a href="#master-image-section">Master Image</a></p>
+      </div>
+    </section>
 
   </main>
+
+  <footer id="js-modal" class="modal">
+
+      <section class="page-navigation modal-nav">
+        <div class="row">
+          <i class="js-modal-toggle fa fa-times"></i>
+        </div>
+      </section>
+
+
+    <div class="modal--content">
+      <h1>What is this thing?</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p class="by-j2">Created by J2</p>
+      <div class="button-wrapper">
+        <a href="http://j2made.com" target="blank" class="button">Visit our site</a>
+        <p class="modal--footnote">Uses <a href="https://github.com/scottcheng/cropit" target="blank">Cropit.js</a> by Scott Cheng and <a href="https://github.com/Stuk/jszip" target="blank">jszip</a> by Stuart Knightley.</p>
+      </div>
+    </div>
+  </footer>
 
 
 

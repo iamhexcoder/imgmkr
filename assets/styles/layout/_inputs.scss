@@ -82,4 +82,37 @@ input[type=range] {
 
 }
 
+// Checkboxes
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox] + label {
+  background: transparent;
+  border: 1px solid $black;
+  padding: 10px 30px;
+  display: inline-block;
+  margin: 10px;
+  text-transform: uppercase;
+  position: relative;
+
+  i {
+    position: absolute;
+    top: 12px;
+    left: 18px;
+  }
+
+  i:before {
+    content: "\f10c"
+  }
+}
+
+input[type=checkbox]:checked + label {
+  background: transparentize($black, 0.8);
+  // color: $white;
+
+  i:before {
+    content: "\f05d"
+  }
+}
 

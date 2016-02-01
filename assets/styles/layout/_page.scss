@@ -52,11 +52,33 @@
   width: 100%;
 }
 
+// Checkbox Section
+.type-select {
+  padding: rem(30);
+  border-bottom: 1px solid $black;
+
+  p {
+    margin-bottom: rem(30);
+  }
+}
+
+.type-check {
+  width: 200px;
+}
+
 
 // Cropit Images
 // -------------
 .img-section {
   margin-bottom: rem(100);
+}
+
+.error {
+  width: 100%;
+  padding: rem(30);
+  background-color: #fc8383;
+  color: $white;
+  margin-bottom: rem(40);
 }
 
 .cropit-image-preview {
@@ -224,4 +246,44 @@
 
 .canvas-image {
   display: none;
+}
+
+// Download all
+.download-all {
+  padding: rem(50) 0;
+  background-color: transparentize($white, 0.8);
+  margin: rem(50) auto;
+  position: relative;
+
+  .warning {
+    display: none;
+    text-transform: uppercase;
+    letter-spacing: rem(3);
+  }
+
+  .note a, .warning a {
+    color: $black;
+    font-weight: 600;
+  }
+
+  // &.blocked {
+  //   background-color: transparentize($brand-color, 0.8);
+
+  //   .warning {
+  //     display: block;
+  //   }
+
+  //   .master-dl {
+  //     opacity: 0.2;
+  //     pointer-events: none;
+  //   }
+
+  //   .note {
+  //     display: none;
+  //   }
+  // }
+}
+
+.master-dl {
+  background-color: rgb(219, 200, 226);
 }

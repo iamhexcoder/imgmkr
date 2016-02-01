@@ -10,7 +10,8 @@
     var $masterImg    = document.getElementById('master-image');
     var $profiles     = $('#profile-images');
     var $nav          = $('#site-nav');
-    var demoImg      = 'http://j2made.github.io/imgmkr/dist/images/unsplash_matterhorn.jpeg';
+    var demoImg       = 'http://j2made.github.io/imgmkr/dist/images/unsplash_matterhorn.jpeg';
+    var $modal        = $('#js-modal');
 
     var imgCropLength = $imageCropper.length;
     var cropperCount  = 1;
@@ -21,15 +22,50 @@
     // Navigation
     // ------------------------------------------------------------------------
     var sections = [];
+    var inputs = [];
     $('.type-section').each(function(){
       var $this = $(this);
       if( $this.attr('data-title') ) {
-        var html = '<a href="#' + $this.attr('id') + '" class="nav-item">' + $this.attr('data-title') + '</a>';
+        var html = '<a href="#' + $this.attr('id') + '" id="link-' + $this.attr('id') + '" class="nav-item">' + $this.attr('data-title') + '</a>';
         sections.push(html);
+        var input = '<input class="option-check" type="checkbox" id="select-' + $this.attr('id') + '" checked="checked" data-target="' + $this.attr('id') + '"/>' +
+                    '<label class="type-check" for="select-' + $this.attr('id') + '"><i class="fa fa-check-circle-o"></i>' + $this.attr('data-title') + '</label>';
+        inputs.push(input);
       }
     });
     var content = sections.join('');
     $nav.append(content);
+    var checkboxes = inputs.join('');
+    $('#js-checkboxes form').append(checkboxes);
+
+
+    // Option Click
+    $('.option-check').on('change', function(){
+      var $this = $(this);
+      var target = $this.attr('data-target');
+      $('#' + target).slideToggle(300, function(){
+        var $this = $(this);
+        if($this.css('display') === 'none'){
+          $('#link-' + target).css({
+            'opacity': '0.5',
+            'pointer-events': 'none'
+          });
+        } else {
+          $('#link-' + target).css({
+            'opacity': '1',
+            'pointer-events': 'auto'
+          });
+        }
+      });
+    });
+
+
+
+    // Lock Body until window loaded, add modal class to footer
+    // ------------------------------------------------------------------------
+    $('body').css('overflow', 'hidden');
+    $modal.addClass('modal-init');
+
 
     // Show or hide curtain
     // ------------------------------------------------------------------------
@@ -63,6 +99,14 @@
     $masterImg.appendChild(img);
 
 
+    // Toggle Modal
+    // ------------------------------------------------------------------------
+    $('.js-modal-toggle').click(function(){
+      $modal.toggleClass('open-modal');
+      $('body').toggleClass('open-modal');
+    });
+
+
 
     // Initialize Cropit
     // ------------------------------------------------------------------------
@@ -82,9 +126,7 @@
     // Update Master Image with FileReader
     // ------------------------------------------------------------------------
     $('#master-file').on('change', function(event){
-
-      // Fade in the curtain
-      $curtain.fadeIn(speedIn);
+      $('.download-all').removeClass('blocked');
 
       // Master Image to data input
       var file = $fileInput.files[0];
@@ -108,9 +150,6 @@
           $imageCropper.cropit({
             imageState: {
               src: reader.result,
-            },
-            onImageLoaded: function() {
-              curtainDisplay();
             }
           });
         };
@@ -138,19 +177,52 @@
     // ------------------------------------------------------------------------
     $('#master-download').click(function(){
       var zip = new JSZip();
+      var throwError = false;
+
+      $(document).remove('.error');
+
       $imageCropper.each(function(){
         var $this = $(this);
-        var img = $this.cropit('export');
-        var imgFile = img.replace('data:image/png;base64,', '');
-        var name = $this.find('.file-input').attr('name');
-        var filename = name + '.png';
 
-        zip.file( filename, imgFile, {base64: true});
+        // If the image is visible
+        if( $this.closest('.type-section').css('display') === 'block' ) {
+          var img = $this.cropit('export');
+          console.log(img);
+
+          if(img){
+            var imgFile = img.replace('data:image/png;base64,', '');
+            var name = $this.find('.file-input').attr('name');
+            var filename = name + '.png';
+            zip.file( filename, imgFile, {base64: true});
+          } else {
+            var w = $this.width();
+            var h = $this.height();
+
+            console.log(w);
+            console.log(h);
+            var error = '<div class="error">' +
+                          '<p>Please upload a new image atleast ' + w + 'px wide by ' + h + 'px</p>' +
+                        '</div>';
+            $this.closest('.img-section').prepend(error);
+
+            throwError = true;
+          }
+        }
 
       });
 
-      var content = zip.generate({type:"blob"});
-      saveAs(content, "example.zip");
+      if(!throwError) {
+        var content = zip.generate({type:"blob"});
+        saveAs(content, "example.zip");
+      } else {
+        var toTop = $('.error:visible:first').offset().top;
+
+        $('html, body').animate({
+            scrollTop: (toTop - 100)
+        }, 1000 );
+
+        return false;
+      }
     });
 
 
@@ -172,7 +244,7 @@
   $(document).ready(run_it_all);
 
   $(window).load(function(){
-
+    $('body').css('overflow', 'auto');
     $('#js-header').css('height', '95vh');
     $('#smooth-scroll').fadeIn(750);
 

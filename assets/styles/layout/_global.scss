@@ -39,6 +39,7 @@ body {
 
 a {
   color: $base-link-color;
+  transition: all 0.4s ease;
 
   &:hover {
     color: $hover-link-color;
