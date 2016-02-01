@@ -126,7 +126,9 @@
     // Update Master Image with FileReader
     // ------------------------------------------------------------------------
     $('#master-file').on('change', function(event){
-      $('.download-all').removeClass('blocked');
+
+      // Remove Errors
+      $('.error').remove();
 
       // Master Image to data input
       var file = $fileInput.files[0];
@@ -179,7 +181,7 @@
       var zip = new JSZip();
       var throwError = false;
 
-      $(document).remove('.error');
+      $('.error').remove();
 
       $imageCropper.each(function(){
         var $this = $(this);
