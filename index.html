@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- build:css -->
-  <link rel="stylesheet" href="dist/styles.min.css">
+  <link rel="stylesheet" href="src/styles.css">
   <!-- endbuild -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <!--   <script src="dist/modernizr-2.8.3.min.js"></script> -->
@@ -23,6 +23,8 @@
       <p>Make your images better.</p>
     </div>
   </div> -->
+
+  <div id="color-block" class="color-shifter"></div>
 
   <header id="js-header" class="masthead">
     <section id="js-navigation" class="page-navigation">
@@ -84,7 +86,11 @@
         <header class="img-section--title">
           <p>Twitter Profile: 400 x 400</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-twitter--profile"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-twitter--profile">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -102,7 +108,11 @@
         <header class="img-section--title">
           <p>Facebook Profile: 180 x 180</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-facebook--profile"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-facebook--profile">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -120,7 +130,11 @@
         <header class="img-section--title">
           <p>Google Profile: 250 x 250</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-google--profile"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-google--profile">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -138,7 +152,11 @@
         <header class="img-section--title">
           <p>Pinterest Profile: 165 x 165</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-pinterest--profile"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-pinterest--profile">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -156,7 +174,11 @@
         <header class="img-section--title">
           <p>Linked In Profile: 400 x 400</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-linkedin--profile"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-linkedin--profile">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -174,7 +196,11 @@
         <header class="img-section--title">
           <p>Instagram Profile: 110 x 110</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-instagram--profile"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-instagram--profile">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -192,7 +218,11 @@
         <header class="img-section--title">
           <p>Tumblr Profile: 128 x 128</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-tumblr--profile"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-tumblr--profile">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -218,7 +248,11 @@
         <header class="img-section--title">
           <p>Profile Header</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-twitter--header"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-twitter--header">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -236,7 +270,11 @@
         <header class="img-section--title">
           <p>Post Photo</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-twitter--post"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-twitter--post">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -261,7 +299,11 @@
         <header class="img-section--title">
           <p>Cover Photo</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-facebook--cover-photo"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-facebook--cover-photo">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -279,7 +321,11 @@
         <header class="img-section--title">
           <p>Shared Image</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-facebook--shared"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-facebook--shared">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -297,7 +343,11 @@
         <header class="img-section--title">
           <p>Shared Link Image</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-facebook--shared-link"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-facebook--shared-link">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -315,7 +365,11 @@
         <header class="img-section--title">
           <p>Highlighted Image</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-facebook--highlighted"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-facebook--highlighted">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -339,7 +393,11 @@
         <header class="img-section--title">
           <p>Cover Image</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-google--cover"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-google--cover">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -357,7 +415,11 @@
         <header class="img-section--title">
           <p>Shared Image</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-google--shared"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-google--shared">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -375,7 +437,11 @@
         <header class="img-section--title">
           <p>Shared Link Image</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-google--shared-link"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-google--shared-link">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -400,7 +466,11 @@
         <header class="img-section--title">
           <p>Square Image</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-instagram--square"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-instagram--square">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -424,7 +494,11 @@
         <header class="img-section--title">
           <p>Dashboard Image</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-tumblr--dash"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-tumblr--dash">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -450,7 +524,11 @@
         <header class="img-section--title">
           <p>Channel Cover Image</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-youtube--cover"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-youtube--cover">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -468,7 +546,11 @@
         <header class="img-section--title">
           <p>Video Image</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-youtube--video"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-youtube--video">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -493,7 +575,11 @@
         <header class="img-section--title">
           <p>Career Cover Image</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-linkedin--cover"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-linkedin--cover">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -511,7 +597,11 @@
         <header class="img-section--title">
           <p>Banner Image</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-linkedin--banner"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-linkedin--banner">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -529,7 +619,11 @@
         <header class="img-section--title">
           <p>Logo Image</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-linkedin--logo"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-linkedin--logo">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -547,7 +641,11 @@
         <header class="img-section--title">
           <p>Logo Image</p>
         </header>
-        <div class="img-section--image-wrapper"><div class="cropit-image-preview img-linkedin--square-logo"></div></div>
+        <div class="img-section--image-wrapper">
+          <div class="cropit-image-preview img-linkedin--square-logo">
+            <div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>
+          </div>
+        </div>
         <div class="img-section--ui">
           <div class="img-section--ui--range-slider">
             <input type="range" class="cropit-image-zoom-input" />
@@ -600,7 +698,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="dist/jquery.min.js"><\/script>')</script>
   <!-- build:js -->
-  <script src="dist/main.min.js"></script>
+  <script src="src/main.js"></script>
   <!-- endbuild -->
 </body>
 

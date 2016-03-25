@@ -2,6 +2,14 @@
 // ----
 // Page level styles
 
+.color-shifter {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
 
 // Curtain
 // -------
@@ -84,6 +92,7 @@
 .cropit-image-preview {
   overflow: hidden;
   margin: 0 auto rem(42);
+  position: relative;
 }
 
 .img-section--ui {
@@ -104,8 +113,32 @@
 .img-section--image-wrapper {
   overflow: scroll;
   width: 100%;
+  position: relative;
+
+  .error-message {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.5);
+
+    p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      transform: translate(-50%, -50%);
+      padding: 30px;
+      font-weight: 600;
+    }
+  }
 }
 
+.error-thrown .error-message {
+  display: block;
+}
 
 // Profiles
 .img-twitter--profile {

@@ -1,3 +1,152 @@
+(function ( $ ) {
+
+    $.fn.colorshift = function(options) {
+      // Setup default options
+      var opts = $.extend({
+          colors: []
+      }, options );
+
+      var errors = {
+        style:    'background: #222; color: #bada55',
+        intro:    'colorshift.js: ',
+        noColors: ' no colors entered',
+        notHex:   ' is not a valid hex code'
+      };
+
+
+      /**
+       * Send 'em packin if they can't follow the rules
+       *
+       */
+      var colors = opts.colors;
+
+      // No colors, no va
+      if(colors.length <= 0) {
+        return false;
+      }
+
+
+      /**
+       * Vars
+       *
+       */
+      var $body       = $('body');
+      var bkgStart    = $body.css('background-color');
+      var $window     = $(window);
+      var dh          = $(document).height();
+      var vh          = $window.height();
+      var scrolled    = $window.scrollTop();
+      var scrollBlock = (dh - vh);
+      var zones       = colors.length;
+      var zh          = (scrollBlock / zones);
+
+
+      function updateAllVars() {
+        $window     = $(window);
+        dh          = $(document).height();
+        scrolled    = $window.scrollTop();
+        vh          = $window.height();
+        scrollBlock = (dh - vh);
+        var zh      = (scrollBlock / zones);    console.log('zh: ' + zh);
+      }
+
+      function updateScrollVars() {
+        scrolled    = $window.scrollTop();
+      }
+
+
+
+      /**
+       * Initialize
+       *
+       * Add wrapper and color blocks
+       */
+
+      var initialize = function() {
+        var controlObject = {};
+        var positionCover = 'top: 0; right: 0; bottom: 0; left: 0;';
+        var wrapper       = ['<div id="colorshift--wrapper" style="z-index: -1; position: fixed; ' +
+                            positionCover + '">'];
+
+        for (i = 0; i < colors.length; i++) {
+          var opacity = 'opacity: 0; ';
+          var id = 'colorshift--panel--' + (i + 1);
+          var start = Math.abs( Math.floor(i * zh) );
+          var end = Math.abs( Math.floor((i + 1) * zh) );
+
+          wrapper.push('<div id="' + id + '" class="colorshift--panel" style="position: absolute; ' + opacity +
+                      positionCover + 'background-color:' + colors[i] + ';" ' +
+                      'data-start="'+ start +'" ' +
+                      'data-end="' + end + '"></div>');
+        }
+
+        wrapper.push('</div>');
+        $body.prepend( wrapper.join('') );
+      };
+
+      /**
+       * Run operations on scroll
+       *
+       */
+      function scrollOps() {
+        if(scrolled > zh) {
+          $body.css('background-color', colors[zones-1]);
+        } else {
+          $body.css('background-color', bkgStart);
+        }
+
+        $('.colorshift--panel').each(function(){
+          var $this = $(this);
+          var start = $this.attr('data-start');
+          var end = $this.attr('data-end');
+
+          // Determine if this element is in play
+          if( (scrolled >= start) && (scrolled < end) ) {
+            var zp = Math.floor(scrolled / zh); // Zones Passed
+            var curZ = Math.abs( Math.floor(scrolled - ( zp * zh ) ) );
+            var curO = Math.abs(curZ / zh);
+
+            // Update opacity
+            $this.css({opacity: curO});
+
+          } else if(scrolled <= start) {
+            $this.css({opacity: 0});
+
+          } else if(scrolled > end) {
+            $this.css({opacity: 1});
+
+          }
+        });
+      }
+
+
+
+
+
+      /**
+       * Set it off and keep it updated
+       *
+       */
+      new initialize();
+
+      $(document).ready(function(){
+        scrollOps();
+      });
+
+      $(window).scroll(function(){
+        updateScrollVars();
+        scrollOps();
+      });
+
+      $(window).resize(function(){
+        updateAllVars();
+      });
+
+    };
+
+}( jQuery ));
+
+
 (function($) {
 
   function run_it_all() {
@@ -114,6 +263,7 @@
       $imageCropper.cropit({
         imageState: {
           src: demoImg,
+          smallImage: 'allow'
         },
         onImageLoaded: function() {
           curtainDisplay();
@@ -129,6 +279,7 @@
 
       // Remove Errors
       $('.error').remove();
+
 
       // Master Image to data input
       var file = $fileInput.files[0];
@@ -150,8 +301,16 @@
 
           // Reinstate with the new image
           $imageCropper.cropit({
+            // smallImage: 'allow',
             imageState: {
               src: reader.result,
+            },
+            onImageError: function() {
+              var el = this.$el[0].childNodes[3].childNodes[1].className;
+              var newEl = el.replace(' cropit-image-loading', '');
+              var elSolo = newEl.replace('cropit-image-preview', '');
+              var elClass = elSolo.replace(/ /g, '.');
+              $(elClass).addClass('error-thrown');
             }
           });
         };
@@ -162,6 +321,8 @@
 
 
 
+
+
     // Download single image
     // ------------------------------------------------------------------------
     $('.export').click(function() {
@@ -169,7 +330,6 @@
       var $editor = $this.closest('.img-section');
       var imgData = $editor.cropit('export');
       var name = $editor.find('.file-input').attr('name');
-      console.log(imgData);
       downloadURI(imgData, name);
     });
 
@@ -189,7 +349,6 @@
         // If the image is visible
         if( $this.closest('.type-section').css('display') === 'block' ) {
           var img = $this.cropit('export');
-          console.log(img);
 
           if(img){
             var imgFile = img.replace('data:image/png;base64,', '');
@@ -200,8 +359,6 @@
             var w = $this.width();
             var h = $this.height();
 
-            console.log(w);
-            console.log(h);
             var error = '<div class="error">' +
                           '<p>Please upload a new image atleast ' + w + 'px wide by ' + h + 'px</p>' +
                         '</div>';
@@ -252,23 +409,8 @@
 
   });
 
-  $(window).scroll(function(){
-
-    $('.type-section').each(function(){
-      var $this = $(this);
-      var thisColor = $this.attr('data-color');
-
-      // Return if no color or if color has already been processed
-      if(!thisColor) { return; }
-
-      var elTop = $this.offset().top;
-      var wBot = $(window).height() + $(window).scrollTop();
-
-      if(elTop > wBot) {
-        $('body').css('background-color', thisColor);
-        return false;
-      }
-    });
+  $('#color-block').colorshift({
+    colors: ['#fff', '#FEFDF0', '#FDFBDF', '#F0F5DB', '#D3EDF1', '#D1EADF', '#D1EADD', '#DBCEDD', '#DBC8E2' ]
   });
 
 })(jQuery);
