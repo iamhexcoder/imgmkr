@@ -305,13 +305,14 @@
             imageState: {
               src: reader.result,
             },
-            onImageError: function() {
-              var el = this.$el[0].childNodes[3].childNodes[1].className;
-              var newEl = el.replace(' cropit-image-loading', '');
-              var elSolo = newEl.replace('cropit-image-preview', '');
-              var elClass = elSolo.replace(/ /g, '.');
-              $(elClass).addClass('error-thrown');
-            }
+            // onImageError: function() {
+            //   var el = this.$el[0].childNodes[3].childNodes[1].className;
+            //   var newEl = el.replace(' cropit-image-loading', '');
+            //   var elSolo = newEl.replace('cropit-image-preview', '');
+            //   var elClass = elSolo.replace(/ /g, '.');
+            //   $(elClass).addClass('error-thrown');
+            // }
+            smallImage: 'allow'
           });
         };
 
