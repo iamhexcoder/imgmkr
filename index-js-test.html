@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>imgmkr</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- build:css -->
+  <link rel="stylesheet" href="src/styles.css">
+  <!-- endbuild -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!--   <script src="dist/modernizr-2.8.3.min.js"></script> -->
+  <script src="https://use.typekit.net/bsv3fok.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+</head>
+
+<body>
+  <!-- <div id="curtain" class="cover-fix curtain">
+    <div class="center-content curtain--content">
+      <p>Make your images better.</p>
+    </div>
+  </div> -->
+
+  <div id="color-block" class="color-shifter"></div>
+
+  <header id="js-header" class="masthead">
+    <section id="js-navigation" class="page-navigation">
+      <div class="row">
+        <p class="logo">imgmkr</p>
+        <nav id="site-nav" class="navigation"></nav>
+        <i class="js-modal-toggle fa fa-info-circle"></i>
+      </div>
+    </section>
+    <div class="masthead--image">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1289.031 623.031">
+        <title>wireframe</title>
+        <path d="M1289.031,623.031H0V0H1289.031V623.031ZM2,621.031H1287.031V2H2V621.031Z" style="fill: #fff"/>
+        <rect x="643.759" y="-402.496" width="2" height="1428.205" transform="translate(84.121 757.137) rotate(-64.268)" style="fill: #fff"/>
+        <rect x="-69.343" y="310.606" width="1428.205" height="2" transform="translate(-71.35 310.917) rotate(-25.739)" style="fill: #fff"/>
+      </svg>
+    </div>
+    <div class="masthead--content">
+      <h1>Make images for the social world.</h1>
+      <p>Upload, crop and download multiple social media image sizes at once from one file.</p>
+    </div>
+    <a id="smooth-scroll" class="masthead-scroll" href="#">
+      <span>Get Started</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="26.575" height="29.548" viewBox="0 0 26.575 29.548">
+        <title>arrow</title>
+        <rect x="12.606" width="1.362" height="28.596" />
+        <polygon points="13.287 29.548 0 16.261 0.963 15.299 13.287 27.622 25.612 15.299 26.575 16.261 13.287 29.548" />
+      </svg>
+    </a>
+  </header>
+
+
+
+  <main id="js-main-content" class="main-content">
+
+    <section id="master-image-section" class="master-image type-section" data-color="#fff">
+      <h1>Master Image</h1>
+
+      <div id="master-image" class="master-image--image"></div>
+      <input type="file" name="master-file" id="master-file" class="master-image-input file-input" />
+        <label class="file-label" for="master-file">Upload New Image</label>
+    </section>
+
+    <!-- Checkboxes -->
+    <section id="js-checkboxes" class="type-select">
+      <h1>Filter Networks</h1>
+      <p>Only select the images you need</p>
+      <form></form>
+    </section>
+
+    <section id="img-editors"></section>
+
+    <section class="download-all">
+      <div class="note">
+        <h1>Download All</h1>
+      </div>
+      <button id="master-download" class="dl master-dl">Download All</button>
+      <div class="note">
+        <p>Start all over by updating the <a href="#master-image-section">Master Image</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="js-modal" class="modal">
+
+      <section class="page-navigation modal-nav">
+        <div class="row">
+          <i class="js-modal-toggle fa fa-times"></i>
+        </div>
+      </section>
+
+
+    <div class="modal--content">
+      <h1>What is this thing?</h1>
+      <p>imgmkr can be used to generate all of your social media images from one single image. You can change images out individually, or upload one master image to change all at once. Images can be scaled and adjusted within the frame by dragging them.</p>
+      <p>Once your images have been adjusted, download only the items you need, or download all at once in a zip file.</p>
+      <p class="by-j2">Created by J2</p>
+      <div class="button-wrapper">
+        <a href="http://j2made.com" target="blank" class="button">Visit our site</a>
+        <p class="modal--footnote">Uses <a href="https://github.com/scottcheng/cropit" target="blank">Cropit.js</a> by Scott Cheng and <a href="https://github.com/Stuk/jszip" target="blank">jszip</a> by Stuart Knightley. Matterhorn image by <a href="https://unsplash.com/sveninho" target="blank">Sven Scheuermeier</a> on <a href="https://unsplash.com" target="blank">Unsplash</a></p>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="dist/jquery.min.js"><\/script>')</script>
+  <!-- build:js -->
+  <script src="src/main.js"></script>
+  <!-- endbuild -->
+</body>
+
+</html>

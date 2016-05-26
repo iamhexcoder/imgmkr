@@ -147,9 +147,72 @@
 }( jQuery ));
 
 
+
+
+
+
+
+
+
+
+/**
+ * The main jam
+ *
+ */
 (function($) {
 
   function run_it_all() {
+
+    $.getJSON('content.json', function(data){
+
+
+      // Start sections html
+      var html = '';
+
+      for (var i = 0; i < data.sections.length; i++) {
+        var section = data.sections[i];
+        var section_title = section['title'];
+        var section_id = section['id'];
+
+        // Start Section HTML
+        html += '<section id="' + section_id + '" class="type-section" data-title="' + section_title + '">';
+        html +=   '<h1>' + section_title + '</h1>';
+
+        for (var j = 0; j < section.img_sections.length; j++) {
+          var img_section = section.img_sections[j];
+          var img_section_id = img_section['id'];
+
+          html +=   '<section class="img-section">';
+          html +=     '<header class="img-section--title">';
+          html +=       '<p>' + img_section.title + '</p>';
+          html +=     '</header>';
+          html +=     '<div class="img-section--image-wrapper">';
+          html +=       '<div class="cropit-image-preview img-' + section_id + '__' + img_section_id + '">';
+          html +=         '<div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>';
+          html +=       '</div>';
+          html +=     '</div>';
+          html +=     '<div class="img-section--ui">';
+          html +=       '<div class="img-section--ui--range-slider">';
+          html +=         '<input type="range" class="cropit-image-zoom-input" />';
+          html +=       '</div>';
+          html +=       '<div class="img-section--ui--buttons">';
+          html +=         '<input type="file" name="' + section_id + '-' + img_section_id + '" id="' + section_id + '-' + img_section_id + '" class="cropit-image-input file-input" />';
+          html +=         '<label class="file-label" for="' + section_id + '-' + img_section_id + '">Use Custom Image</label>';
+          html +=         '<button class="dl export">Download Single Image</button>';
+          html +=       '</div>';
+          html +=     '</div>';
+          html +=   '</section>';
+
+        }
+
+        // Close Section
+        html += '</section>';
+
+      }
+
+      $('#img-editors').append(html);
+
+
 
     // Variables
     // ------------------------------------------------------------------------
@@ -177,7 +240,7 @@
       if( $this.attr('data-title') ) {
         var html = '<a href="#' + $this.attr('id') + '" id="link-' + $this.attr('id') + '" class="nav-item">' + $this.attr('data-title') + '</a>';
         sections.push(html);
-        var input = '<input class="option-check" type="checkbox" id="select-' + $this.attr('id') + '" checked="checked" data-target="' + $this.attr('id') + '"/>' +
+        var input = '<input class="option-check" type="checkbox" id="select-' + $this.attr('id') + '" data-target="' + $this.attr('id') + '"/>' +
                     '<label class="type-check" for="select-' + $this.attr('id') + '"><i class="fa fa-check-circle-o"></i>' + $this.attr('data-title') + '</label>';
         inputs.push(input);
       }
@@ -280,7 +343,6 @@
       // Remove Errors
       $('.error').remove();
 
-
       // Master Image to data input
       var file = $fileInput.files[0];
       var imageType = /image.*/;
@@ -326,7 +388,7 @@
 
     // Download single image
     // ------------------------------------------------------------------------
-    $('.export').click(function() {
+    $('.export').on('click', function() {
       var $this = $(this);
       var $editor = $this.closest('.img-section');
       var imgData = $editor.cropit('export');
@@ -338,7 +400,7 @@
 
     // Download all images
     // ------------------------------------------------------------------------
-    $('#master-download').click(function(){
+    $('#master-download').on('click', function(){
       var zip = new JSZip();
       var throwError = false;
 
@@ -398,11 +460,22 @@
       }
     });
 
-
+    }); // END $.getJSON()
   }
 
+
+
+  /**
+   * Document Ready
+   */
   $(document).ready(run_it_all);
 
+
+
+  /**
+   * Window Load
+   *
+   */
   $(window).load(function(){
     $('body').css('overflow', 'auto');
     $('#js-header').css('height', '95vh');
@@ -410,9 +483,17 @@
 
   });
 
+
+
+  /**
+   * Initialize Colorshift
+   *
+   */
   $('#color-block').colorshift({
     colors: ['#fff', '#FEFDF0', '#FDFBDF', '#F0F5DB', '#D3EDF1', '#D1EADF', '#D1EADD', '#DBCEDD', '#DBC8E2' ]
   });
+
+
 
 })(jQuery);
 

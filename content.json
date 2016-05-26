@@ -1,0 +1,22 @@
+{
+  "sections": [
+    {
+      "title": "Twitter",
+      "id": "twitter",
+      "img_sections": [
+        { "id": "header", "title": "Profile Header", "width": false, "height": false },
+        { "id": "post",   "title": "Post Photo", "width": false, "height": false }
+      ]
+    },
+    {
+      "title": "Facebook",
+      "id": "facebook",
+      "img_sections": [
+        { "id": "cover_photo", "title": "Cover Photo", "width": false, "height": false },
+        { "id": "shared_image", "title": "Shared Image", "width": false, "height": false },
+        { "id": "shared_link_image", "title": "Shared Link Image", "width": false, "height": false },
+        { "id": "highlighted_image", "title": "Highlighted Image", "width": false, "height": false }
+      ]
+    }
+  ]
+}
