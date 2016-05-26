@@ -4,18 +4,76 @@
       "title": "Twitter",
       "id": "twitter",
       "img_sections": [
-        { "id": "header", "title": "Profile Header", "width": false, "height": false },
-        { "id": "post",   "title": "Post Photo", "width": false, "height": false }
+        { "id": "profile", "title": "Profile Image", "width": 400, "height": 400 },
+        { "id": "header", "title": "Profile Header", "width": 1500, "height": 500 },
+        { "id": "post",   "title": "In-Stream Photo", "width": 506, "height": 253 }
       ]
     },
     {
       "title": "Facebook",
       "id": "facebook",
       "img_sections": [
-        { "id": "cover_photo", "title": "Cover Photo", "width": false, "height": false },
-        { "id": "shared_image", "title": "Shared Image", "width": false, "height": false },
-        { "id": "shared_link_image", "title": "Shared Link Image", "width": false, "height": false },
-        { "id": "highlighted_image", "title": "Highlighted Image", "width": false, "height": false }
+        { "id": "profile", "title": "Profile Image", "width": 180, "height": 180 },
+        { "id": "cover_photo", "title": "Cover Photo", "width": 828, "height": 315 },
+        { "id": "shared_image_timeline", "title": "Shared Image", "width": 1200, "height": 630 },
+        { "id": "highlighted_image", "title": "Highlighted Image", "width": 1200, "height": 717 }
+      ]
+    },
+    {
+      "title": "Google",
+      "id": "google",
+      "img_sections": [
+        { "id": "profile", "title": "Profile Image", "width": 250, "height": 250 },
+        { "id": "cover_image", "title": "Cover Image", "width": 1080, "height": 608 },
+        { "id": "shared_image", "title": "Shared Image", "width": 497, "height": 373 },
+        { "id": "shared_link_image", "title": "Shared Link Image", "width": 150, "height": 150 }
+      ]
+    },
+    {
+      "title": "Pinterest",
+      "id": "pinterest",
+      "img_sections": [
+        { "id": "profile", "title": "Profile Image", "width": 250, "height": 250 },
+        { "id": "cover_image", "title": "Cover Image", "width": 1080, "height": 608 },
+        { "id": "shared_image", "title": "Shared Image", "width": 497, "height": 373 },
+        { "id": "shared_link_image", "title": "Shared Link Image", "width": 150, "height": 150 }
+      ]
+    },
+    {
+      "title": "Tumblr",
+      "id": "tumblr",
+      "img_sections": [
+        { "id": "profile", "title": "Profile Image", "width": 128, "height": 128 },
+        { "id": "dashboard", "title": "Image Post (Dashboard Image)", "width": 1280, "height": 1920 },
+        { "id": "in_feed", "title": "Image Post (In Feed)", "width": 500, "height": 750 }
+      ]
+    },
+    {
+      "title": "Instagram",
+      "id": "instagram",
+      "img_sections": [
+        { "id": "profile", "title": "Profile Image", "width": 110, "height": 110 },
+        { "id": "square_image", "title": "Square Image", "width": 1080, "height": 1080 }
+      ]
+    },
+    {
+      "title": "YouTube",
+      "id": "youtube",
+      "img_sections": [
+        { "id": "cover", "title": "Channel Cover Image", "width": 1546, "height": 423 },
+        { "id": "video", "title": "Video Image", "width": 1280, "height": 720 }
+      ]
+    },
+    {
+      "title": "LinkedIn",
+      "id": "linkedin",
+      "img_sections": [
+        { "id": "profile", "title": "Profile Image", "width": 400, "height": 400 },
+        { "id": "cover", "title": "Hero Image", "width": 974, "height": 330 },
+        { "id": "banner", "title": "Banner Image", "width": 646, "height": 220 },
+        { "id": "standard_logo", "title": "Standard Logo Image", "width": 400, "height": 400 },
+        { "id": "square_logo", "title": "Square Logo Image", "width": 60, "height": 60 },
+        { "id": "background_image", "title": "Background Image", "width": 1000, "height": 425 }
       ]
     }
   ]

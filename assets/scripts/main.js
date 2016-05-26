@@ -163,16 +163,18 @@
 
   function run_it_all() {
 
+
     $.getJSON('content.json', function(data){
 
+      console.log('hi');
 
       // Start sections html
       var html = '';
 
       for (var i = 0; i < data.sections.length; i++) {
         var section = data.sections[i];
-        var section_title = section['title'];
-        var section_id = section['id'];
+        var section_title = section.title;
+        var section_id = section.id;
 
         // Start Section HTML
         html += '<section id="' + section_id + '" class="type-section" data-title="' + section_title + '">';
@@ -180,14 +182,17 @@
 
         for (var j = 0; j < section.img_sections.length; j++) {
           var img_section = section.img_sections[j];
-          var img_section_id = img_section['id'];
+          var img_section_id = img_section.id;
+          // console.log(img_section.width);
+
+          //
 
           html +=   '<section class="img-section">';
           html +=     '<header class="img-section--title">';
           html +=       '<p>' + img_section.title + '</p>';
           html +=     '</header>';
           html +=     '<div class="img-section--image-wrapper">';
-          html +=       '<div class="cropit-image-preview img-' + section_id + '__' + img_section_id + '">';
+          html +=       '<div class="cropit-image-preview img-' + section_id + '__' + img_section_id + '" style="width: ' + img_section.width + 'px; height:' + img_section.height + 'px;">';
           html +=         '<div class="error-message"><p>The image you uploaded is too small for this image size.</p></div>';
           html +=       '</div>';
           html +=     '</div>';
@@ -214,251 +219,265 @@
 
 
 
-    // Variables
-    // ------------------------------------------------------------------------
-    var $imageCropper = $('.img-section');
-    var $curtain      = $('#curtain');
-    var $fileInput    = document.getElementById('master-file');
-    var $masterImg    = document.getElementById('master-image');
-    var $profiles     = $('#profile-images');
-    var $nav          = $('#site-nav');
-    var demoImg       = 'http://j2made.github.io/imgmkr/dist/images/unsplash_matterhorn_full.jpeg';
-    var $modal        = $('#js-modal');
+      // Variables
+      // ------------------------------------------------------------------------
+      var $imageCropper = $('.img-section');
+      var $curtain      = $('#curtain');
+      var $fileInput    = document.getElementById('master-file');
+      var $masterImg    = document.getElementById('master-image');
+      var $profiles     = $('#profile-images');
+      var $nav          = $('#site-nav');
+      var demoImg       = 'http://j2made.github.io/imgmkr/dist/images/unsplash_matterhorn_full.jpeg';
+      var $modal        = $('#js-modal');
 
-    var imgCropLength = $imageCropper.length;
-    var cropperCount  = 1;
-    var speedIn       = 350;
-    var speedOut      = 1500;
-
-
-    // Navigation
-    // ------------------------------------------------------------------------
-    var sections = [];
-    var inputs = [];
-    $('.type-section').each(function(){
-      var $this = $(this);
-      if( $this.attr('data-title') ) {
-        var html = '<a href="#' + $this.attr('id') + '" id="link-' + $this.attr('id') + '" class="nav-item">' + $this.attr('data-title') + '</a>';
-        sections.push(html);
-        var input = '<input class="option-check" type="checkbox" id="select-' + $this.attr('id') + '" data-target="' + $this.attr('id') + '"/>' +
-                    '<label class="type-check" for="select-' + $this.attr('id') + '"><i class="fa fa-check-circle-o"></i>' + $this.attr('data-title') + '</label>';
-        inputs.push(input);
-      }
-    });
-    var content = sections.join('');
-    $nav.append(content);
-    var checkboxes = inputs.join('');
-    $('#js-checkboxes form').append(checkboxes);
+      var imgCropLength = $imageCropper.length;
+      var cropperCount  = 1;
+      var speedIn       = 350;
+      var speedOut      = 1500;
 
 
-    // Option Click
-    $('.option-check').on('change', function(){
-      var $this = $(this);
-      var target = $this.attr('data-target');
-      $('#' + target).slideToggle(300, function(){
+      // Navigation
+      // ------------------------------------------------------------------------
+      var sections = [];
+      var inputs = [];
+      $('.type-section').each(function(){
         var $this = $(this);
-        if($this.css('display') === 'none'){
-          $('#link-' + target).css({
-            'opacity': '0.5',
-            'pointer-events': 'none'
-          });
-        } else {
-          $('#link-' + target).css({
-            'opacity': '1',
-            'pointer-events': 'auto'
-          });
+        if( $this.attr('data-title') ) {
+          var html = '<a href="#' + $this.attr('id') + '" id="link-' + $this.attr('id') + '" class="nav-item">' + $this.attr('data-title') + '</a>';
+          sections.push(html);
+          var input = '<input class="option-check" type="checkbox" id="select-' + $this.attr('id') + '" data-target="' + $this.attr('id') + '"/>' +
+                      '<label class="type-check" for="select-' + $this.attr('id') + '"><i class="fa fa-check-circle-o"></i>' + $this.attr('data-title') + '</label>';
+          inputs.push(input);
         }
       });
-    });
+      var content = sections.join('');
+      $nav.append(content);
+      var checkboxes = inputs.join('');
+      $('#js-checkboxes form').append(checkboxes);
 
 
-
-    // Lock Body until window loaded, add modal class to footer
-    // ------------------------------------------------------------------------
-    $('body').css('overflow', 'hidden');
-    $modal.addClass('modal-init');
-
-
-    // Show or hide curtain
-    // ------------------------------------------------------------------------
-    function curtainDisplay() {
-      if(cropperCount < imgCropLength) {
-        cropperCount++;
-      } else if (cropperCount === imgCropLength) {
-        $curtain.fadeOut(speedOut);
-      } else {
-        return;
-      }
-    }
-
-
-
-    // Create Download Link
-    // ------------------------------------------------------------------------
-    function downloadURI(uri, name) {
-      var link = document.createElement("a");
-      link.download = name;
-      link.href = uri;
-      link.click();
-    }
-
-
-
-    // Load demo image into Master Image
-    // ------------------------------------------------------------------------
-    var img = new Image();
-    img.src = demoImg;
-    $masterImg.appendChild(img);
-
-
-    // Toggle Modal
-    // ------------------------------------------------------------------------
-    $('.js-modal-toggle').click(function(){
-      $modal.toggleClass('open-modal');
-      $('body').toggleClass('open-modal');
-    });
-
-
-
-    // Initialize Cropit
-    // ------------------------------------------------------------------------
-    $(window).load(function(){
-      $imageCropper.cropit({
-        imageState: {
-          src: demoImg,
-          smallImage: 'allow'
-        },
-        onImageLoaded: function() {
-          curtainDisplay();
-        }
-      });
-    });
-
-
-
-    // Update Master Image with FileReader
-    // ------------------------------------------------------------------------
-    $('#master-file').on('change', function(event){
-
-      // Remove Errors
-      $('.error').remove();
-
-      // Master Image to data input
-      var file = $fileInput.files[0];
-      var imageType = /image.*/;
-
-      if (file.type.match(imageType)) {
-        var reader = new FileReader();
-
-        reader.onload = function(event) {
-
-          // Update the master image
-          $masterImg.innerHTML = '';
-          var img = new Image();
-          img.src = reader.result;
-          $masterImg.appendChild(img);
-
-          // Destroy the cropit instance
-          $imageCropper.cropit('destroy');
-
-          // Reinstate with the new image
-          $imageCropper.cropit({
-            // smallImage: 'allow',
-            imageState: {
-              src: reader.result,
-            },
-            // onImageError: function() {
-            //   var el = this.$el[0].childNodes[3].childNodes[1].className;
-            //   var newEl = el.replace(' cropit-image-loading', '');
-            //   var elSolo = newEl.replace('cropit-image-preview', '');
-            //   var elClass = elSolo.replace(/ /g, '.');
-            //   $(elClass).addClass('error-thrown');
-            // }
-            smallImage: 'allow'
-          });
-        };
-
-       reader.readAsDataURL(file);
-      }
-    });
-
-
-
-
-
-    // Download single image
-    // ------------------------------------------------------------------------
-    $('.export').on('click', function() {
-      var $this = $(this);
-      var $editor = $this.closest('.img-section');
-      var imgData = $editor.cropit('export');
-      var name = $editor.find('.file-input').attr('name');
-      downloadURI(imgData, name);
-    });
-
-
-
-    // Download all images
-    // ------------------------------------------------------------------------
-    $('#master-download').on('click', function(){
-      var zip = new JSZip();
-      var throwError = false;
-
-      $('.error').remove();
-
-      $imageCropper.each(function(){
+      // Option Click
+      $('.option-check').on('change', function(){
         var $this = $(this);
-
-        // If the image is visible
-        if( $this.closest('.type-section').css('display') === 'block' ) {
-          var img = $this.cropit('export');
-
-          if(img){
-            var imgFile = img.replace('data:image/png;base64,', '');
-            var name = $this.find('.file-input').attr('name');
-            var filename = name + '.png';
-            zip.file( filename, imgFile, {base64: true});
+        var target = $this.attr('data-target');
+        $('#' + target).slideToggle(300, function(){
+          var $this = $(this);
+          if($this.css('display') === 'none'){
+            $('#link-' + target).css({
+              'opacity': '0.5',
+              'pointer-events': 'none'
+            });
           } else {
-            var w = $this.width();
-            var h = $this.height();
-
-            var error = '<div class="error">' +
-                          '<p>Please upload a new image atleast ' + w + 'px wide by ' + h + 'px</p>' +
-                        '</div>';
-            $this.closest('.img-section').prepend(error);
-
-            throwError = true;
+            $('#link-' + target).css({
+              'opacity': '1',
+              'pointer-events': 'auto'
+            });
           }
-        }
-
+        });
       });
 
-      if(!throwError) {
-        var content = zip.generate({type:"blob"});
-        saveAs(content, "example.zip");
-      } else {
-        var toTop = $('.error:visible:first').offset().top;
 
-        $('html, body').animate({
-            scrollTop: (toTop - 100)
-        }, 1000 );
 
-        return false;
+      // Lock Body until window loaded, add modal class to footer
+      // ------------------------------------------------------------------------
+      $('body').css('overflow', 'hidden');
+      $modal.addClass('modal-init');
+
+
+      // Show or hide curtain
+      // ------------------------------------------------------------------------
+      function curtainDisplay() {
+        if(cropperCount < imgCropLength) {
+          cropperCount++;
+        } else if (cropperCount === imgCropLength) {
+          $curtain.fadeOut(speedOut);
+        } else {
+          return;
+        }
       }
-    });
 
 
-    var $header = $('#js-header');
-    var $navigation = $('#js-navigation');
-    var headerH = $header.height();
 
-    $(window).scroll(function(){
-      if($(window).scrollTop() >= headerH ) {
-        $navigation.addClass('fix-it');
-      } else {
-        $navigation.removeClass('fix-it');
+      // Create Download Link
+      // ------------------------------------------------------------------------
+      function downloadURI(uri, name) {
+        var link = document.createElement("a");
+        link.download = name;
+        link.href = uri;
+        link.click();
       }
-    });
+
+
+
+      // Load demo image into Master Image
+      // ------------------------------------------------------------------------
+      var img = new Image();
+      img.src = demoImg;
+      $masterImg.appendChild(img);
+
+
+      // Toggle Modal
+      // ------------------------------------------------------------------------
+      $('.js-modal-toggle').click(function(){
+        $modal.toggleClass('open-modal');
+        $('body').toggleClass('open-modal');
+      });
+
+
+
+      // Initialize Cropit
+      // ------------------------------------------------------------------------
+      $(window).load(function(){
+        $imageCropper.cropit({
+          imageState: {
+            src: demoImg,
+            smallImage: 'allow'
+          },
+          onImageLoaded: function() {
+            curtainDisplay();
+          }
+        });
+      });
+
+
+
+      // Update Master Image with FileReader
+      // ------------------------------------------------------------------------
+      $('#master-file').on('change', function(event){
+
+        // Remove Errors
+        $('.error').remove();
+
+        // Master Image to data input
+        var file = $fileInput.files[0];
+        var imageType = /image.*/;
+
+        if (file.type.match(imageType)) {
+          var reader = new FileReader();
+
+          reader.onload = function(event) {
+
+            // Update the master image
+            $masterImg.innerHTML = '';
+            var img = new Image();
+            img.src = reader.result;
+            $masterImg.appendChild(img);
+
+            // Destroy the cropit instance
+            $imageCropper.cropit('destroy');
+
+            // Reinstate with the new image
+            $imageCropper.cropit({
+              // smallImage: 'allow',
+              imageState: {
+                src: reader.result,
+              },
+              // onImageError: function() {
+              //   var el = this.$el[0].childNodes[3].childNodes[1].className;
+              //   var newEl = el.replace(' cropit-image-loading', '');
+              //   var elSolo = newEl.replace('cropit-image-preview', '');
+              //   var elClass = elSolo.replace(/ /g, '.');
+              //   $(elClass).addClass('error-thrown');
+              // }
+              smallImage: 'allow'
+            });
+          };
+
+         reader.readAsDataURL(file);
+        }
+      });
+
+
+
+
+
+      // Download single image
+      // ------------------------------------------------------------------------
+      $('.export').on('click', function() {
+        var $this = $(this);
+        var $editor = $this.closest('.img-section');
+        var imgData = $editor.cropit('export');
+        var name = $editor.find('.file-input').attr('name');
+        downloadURI(imgData, name);
+      });
+
+
+
+      // Download all images
+      // ------------------------------------------------------------------------
+      $('#master-download').on('click', function(){
+        var zip = new JSZip();
+        var throwError = false;
+
+        $('.error').remove();
+
+        $imageCropper.each(function(){
+          var $this = $(this);
+
+          // If the image is visible
+          if( $this.closest('.type-section').css('display') === 'block' ) {
+            var img = $this.cropit('export');
+
+            if(img){
+              var imgFile = img.replace('data:image/png;base64,', '');
+              var name = $this.find('.file-input').attr('name');
+              var filename = name + '.png';
+              zip.file( filename, imgFile, {base64: true});
+            } else {
+              var w = $this.width();
+              var h = $this.height();
+
+              var error = '<div class="error">' +
+                            '<p>Please upload a new image atleast ' + w + 'px wide by ' + h + 'px</p>' +
+                          '</div>';
+              $this.closest('.img-section').prepend(error);
+
+              throwError = true;
+            }
+          }
+
+        });
+
+        if(!throwError) {
+          var content = zip.generate({type:"blob"});
+          saveAs(content, "example.zip");
+        } else {
+          var toTop = $('.error:visible:first').offset().top;
+
+          $('html, body').animate({
+              scrollTop: (toTop - 100)
+          }, 1000 );
+
+          return false;
+        }
+      });
+
+
+
+      /**
+       * Fix Navigation
+       *
+       */
+      var $header = $('#js-header');
+      var $navigation = $('#js-navigation');
+      var headerH = $header.height();
+
+      $(window).scroll(function(){
+        if($(window).scrollTop() >= headerH ) {
+          $navigation.addClass('fix-it');
+        } else {
+          $navigation.removeClass('fix-it');
+        }
+      });
+
+
+      /**
+       * Initialize Colorshift
+       *
+       */
+      $('#color-block').colorshift({
+        colors: ['#fff', '#FEFDF0', '#FDFBDF', '#F0F5DB', '#D3EDF1', '#D1EADF', '#D1EADD', '#DBCEDD', '#DBC8E2' ]
+      });
 
     }); // END $.getJSON()
   }
@@ -480,17 +499,6 @@
     $('body').css('overflow', 'auto');
     $('#js-header').css('height', '95vh');
     $('#smooth-scroll').fadeIn(750);
-
-  });
-
-
-
-  /**
-   * Initialize Colorshift
-   *
-   */
-  $('#color-block').colorshift({
-    colors: ['#fff', '#FEFDF0', '#FDFBDF', '#F0F5DB', '#D3EDF1', '#D1EADF', '#D1EADD', '#DBCEDD', '#DBC8E2' ]
   });
 
 
